@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4976661A21B4621F00AB98FB /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661921B4621F00AB98FB /* Sign.storyboard */; };
+		4976661C21B4622400AB98FB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661B21B4622400AB98FB /* Home.storyboard */; };
+		4976661E21B4623B00AB98FB /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661D21B4623B00AB98FB /* Notification.storyboard */; };
+		4976662021B4624200AB98FB /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661F21B4624200AB98FB /* MyPage.storyboard */; };
 		4996569B21AEFFA600576437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4996569A21AEFFA600576437 /* AppDelegate.swift */; };
 		4996569D21AEFFA600576437 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4996569C21AEFFA600576437 /* ViewController.swift */; };
 		499656A021AEFFA600576437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4996569E21AEFFA600576437 /* Main.storyboard */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4976661921B4621F00AB98FB /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
+		4976661B21B4622400AB98FB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		4976661D21B4623B00AB98FB /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		4976661F21B4624200AB98FB /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		4996569721AEFFA600576437 /* CC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4996569A21AEFFA600576437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4996569C21AEFFA600576437 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +110,10 @@
 			children = (
 				499656A321AEFFA600576437 /* LaunchScreen.storyboard */,
 				4996569E21AEFFA600576437 /* Main.storyboard */,
+				4976661921B4621F00AB98FB /* Sign.storyboard */,
+				4976661B21B4622400AB98FB /* Home.storyboard */,
+				4976661D21B4623B00AB98FB /* Notification.storyboard */,
+				4976661F21B4624200AB98FB /* MyPage.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -163,6 +175,7 @@
 				4996569321AEFFA600576437 /* Sources */,
 				4996569421AEFFA600576437 /* Frameworks */,
 				4996569521AEFFA600576437 /* Resources */,
+				460C99EFF3DA604C9ACBAE20 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,14 +225,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				499656A521AEFFA600576437 /* LaunchScreen.storyboard in Resources */,
+				4976661C21B4622400AB98FB /* Home.storyboard in Resources */,
 				499656A221AEFFA600576437 /* Assets.xcassets in Resources */,
 				499656A021AEFFA600576437 /* Main.storyboard in Resources */,
+				4976662021B4624200AB98FB /* MyPage.storyboard in Resources */,
+				4976661A21B4621F00AB98FB /* Sign.storyboard in Resources */,
+				4976661E21B4623B00AB98FB /* Notification.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		460C99EFF3DA604C9ACBAE20 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CC/Pods-CC-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CC/Pods-CC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AD4306ED55C9AF63FA99B912 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
