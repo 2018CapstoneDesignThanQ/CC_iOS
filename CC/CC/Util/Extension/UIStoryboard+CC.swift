@@ -14,3 +14,17 @@ extension UIStoryboard {
         return instantiateViewController(withIdentifier: String(describing: type)) as! T
     }
 }
+
+extension UIViewController {
+    enum StoryboardType: String {
+        case main = "Main"
+        case sign = "Sign"
+        case home = "Home"
+        case noti = "Notification"
+        case mypage = "MyPage"
+    }
+    
+    func storyboard(_ type: StoryboardType) -> UIStoryboard {
+        return UIStoryboard(name: type.rawValue, bundle: nil)
+    }
+}
