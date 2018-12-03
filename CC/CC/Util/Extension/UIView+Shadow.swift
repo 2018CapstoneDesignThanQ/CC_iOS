@@ -14,6 +14,7 @@ extension UIView {
                     opacity: Float = 0.3,
                     size offset: CGSize = CGSize(width: 0, height: 3),
                     blur radius: CGFloat = 6) {
+        self.layer.masksToBounds = false
         self.layer.shadowColor = color.cgColor
         self.layer.shadowOpacity = opacity
         

@@ -9,10 +9,18 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    @IBOutlet weak var codeEnterView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.setupUI()
     }
-
+    
+    private func setupUI() {
+        self.navigationController?.navigationBar.isHidden = true
+        
+        self.codeEnterView.makeShadow()
+    }
 }

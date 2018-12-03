@@ -11,6 +11,12 @@ import UIKit
 
 @IBDesignable
 extension UIView {
+    public enum RoundType: Int {
+        case none
+        case widthRound
+        case heightRound
+    }
+    
     @IBInspectable var cornerRadius: CGFloat {
         get{
             return layer.cornerRadius
@@ -40,8 +46,37 @@ extension UIView {
         }
     }
     
+    @IBInspectable var roundType: Int {
+        get {
+            return 0
+        }
+        set {
+            guard let type = RoundType(rawValue: newValue) else { return }
+            switch type {
+            case .none:
+                break
+            case .widthRound:
+                self.cornerRadius = self.bounds.size.width / 2
+            case .heightRound:
+                self.cornerRadius = self.bounds.size.height / 2
+            }
+        }
+    }
+    
     @discardableResult func roundCorner() -> UIView {
         self.cornerRadius = self.bounds.size.width / 2
         return self
+    }
+    
+    private func setupUI() {
+        guard let type = RoundType(rawValue: self.roundType) else { return }
+        switch type {
+        case .none:
+            break
+        case .widthRound:
+            self.cornerRadius = self.bounds.size.width / 2
+        case .heightRound:
+            self.cornerRadius = self.bounds.size.height / 2
+        }
     }
 }
