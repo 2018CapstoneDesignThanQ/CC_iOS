@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var codeEnterView: UIView!
+    @IBOutlet weak var codeEnterTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,13 @@ class HomeViewController: UIViewController {
         self.setupUI()
     }
     
+    @IBAction func enterAction(_ sender: Any) {
+        let viewController = storyboard(.home).instantiateViewController(ofType: AskHomeViewController.self)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     private func setupUI() {
-        self.navigationController?.navigationBar.isHidden = true
+        self.setTranslucentNavigation()
         
         self.codeEnterView.makeShadow()
     }

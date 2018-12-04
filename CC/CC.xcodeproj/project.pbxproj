@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4915555C21B6C41C00453356 /* AskHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915555B21B6C41C00453356 /* AskHomeViewController.swift */; };
+		4915556421B6C9F700453356 /* TopMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915556221B6C9F700453356 /* TopMessageTableViewCell.swift */; };
+		4915556521B6C9F700453356 /* TopMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4915556321B6C9F700453356 /* TopMessageTableViewCell.xib */; };
+		4915556821B6CA0500453356 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915556621B6CA0500453356 /* MessageTableViewCell.swift */; };
+		4915556921B6CA0500453356 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4915556721B6CA0500453356 /* MessageTableViewCell.xib */; };
+		4915556C21B6CA3B00453356 /* MessageAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915556A21B6CA3B00453356 /* MessageAnswerTableViewCell.swift */; };
+		4915556D21B6CA3B00453356 /* MessageAnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4915556B21B6CA3B00453356 /* MessageAnswerTableViewCell.xib */; };
+		4915557021B6CA7000453356 /* MessageHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915556E21B6CA7000453356 /* MessageHeaderTableViewCell.swift */; };
+		4915557121B6CA7000453356 /* MessageHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4915556F21B6CA7000453356 /* MessageHeaderTableViewCell.xib */; };
 		4976661A21B4621F00AB98FB /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661921B4621F00AB98FB /* Sign.storyboard */; };
 		4976661C21B4622400AB98FB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661B21B4622400AB98FB /* Home.storyboard */; };
 		4976661E21B4623B00AB98FB /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661D21B4623B00AB98FB /* Notification.storyboard */; };
@@ -30,6 +39,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4915555B21B6C41C00453356 /* AskHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskHomeViewController.swift; sourceTree = "<group>"; };
+		4915556221B6C9F700453356 /* TopMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMessageTableViewCell.swift; sourceTree = "<group>"; };
+		4915556321B6C9F700453356 /* TopMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopMessageTableViewCell.xib; sourceTree = "<group>"; };
+		4915556621B6CA0500453356 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		4915556721B6CA0500453356 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		4915556A21B6CA3B00453356 /* MessageAnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAnswerTableViewCell.swift; sourceTree = "<group>"; };
+		4915556B21B6CA3B00453356 /* MessageAnswerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageAnswerTableViewCell.xib; sourceTree = "<group>"; };
+		4915556E21B6CA7000453356 /* MessageHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		4915556F21B6CA7000453356 /* MessageHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		4976661921B4621F00AB98FB /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		4976661B21B4622400AB98FB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		4976661D21B4623B00AB98FB /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
@@ -68,6 +86,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4915556121B6C9C400453356 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4915556E21B6CA7000453356 /* MessageHeaderTableViewCell.swift */,
+				4915556F21B6CA7000453356 /* MessageHeaderTableViewCell.xib */,
+				4915556221B6C9F700453356 /* TopMessageTableViewCell.swift */,
+				4915556321B6C9F700453356 /* TopMessageTableViewCell.xib */,
+				4915556621B6CA0500453356 /* MessageTableViewCell.swift */,
+				4915556721B6CA0500453356 /* MessageTableViewCell.xib */,
+				4915556A21B6CA3B00453356 /* MessageAnswerTableViewCell.swift */,
+				4915556B21B6CA3B00453356 /* MessageAnswerTableViewCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		4976662D21B52EFF00AB98FB /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				4976663121B52F3600AB98FB /* HomeViewController.swift */,
+				4915555B21B6C41C00453356 /* AskHomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -205,6 +239,7 @@
 		499656B321AF001500576437 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4915556121B6C9C400453356 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,12 +322,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				499656A521AEFFA600576437 /* LaunchScreen.storyboard in Resources */,
+				4915556D21B6CA3B00453356 /* MessageAnswerTableViewCell.xib in Resources */,
 				4976661C21B4622400AB98FB /* Home.storyboard in Resources */,
 				499656A221AEFFA600576437 /* Assets.xcassets in Resources */,
 				499656A021AEFFA600576437 /* Main.storyboard in Resources */,
+				4915556921B6CA0500453356 /* MessageTableViewCell.xib in Resources */,
 				4976662021B4624200AB98FB /* MyPage.storyboard in Resources */,
 				4976661A21B4621F00AB98FB /* Sign.storyboard in Resources */,
 				4976661E21B4623B00AB98FB /* Notification.storyboard in Resources */,
+				4915556521B6C9F700453356 /* TopMessageTableViewCell.xib in Resources */,
+				4915557121B6CA7000453356 /* MessageHeaderTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,11 +394,16 @@
 				4976663C21B5738700AB98FB /* UILabel+Color.swift in Sources */,
 				4976662421B5272700AB98FB /* UIStoryboard+CC.swift in Sources */,
 				4976662621B5275000AB98FB /* UIView+Shadow.swift in Sources */,
+				4915556421B6C9F700453356 /* TopMessageTableViewCell.swift in Sources */,
+				4915556C21B6CA3B00453356 /* MessageAnswerTableViewCell.swift in Sources */,
 				4976663621B56B2D00AB98FB /* SignUpViewController.swift in Sources */,
+				4915557021B6CA7000453356 /* MessageHeaderTableViewCell.swift in Sources */,
 				4976663221B52F3600AB98FB /* HomeViewController.swift in Sources */,
+				4915556821B6CA0500453356 /* MessageTableViewCell.swift in Sources */,
 				4996569B21AEFFA600576437 /* AppDelegate.swift in Sources */,
 				4976662C21B52EEF00AB98FB /* NotificationMainViewController.swift in Sources */,
 				4976662221B5270D00AB98FB /* TableView+CC.swift in Sources */,
+				4915555C21B6C41C00453356 /* AskHomeViewController.swift in Sources */,
 				4976663A21B56ED100AB98FB /* UIViewController+Navigationbar.swift in Sources */,
 				4976662A21B5281600AB98FB /* UIColor+CC.swift in Sources */,
 			);
