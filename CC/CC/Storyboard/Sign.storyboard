@@ -146,8 +146,8 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="7De-rX-wEb"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="textFields" destination="TK1-RP-Pbi" id="ygj-yU-r9R"/>
-                        <outletCollection property="textFields" destination="VLT-mf-1KA" collectionClass="NSMutableArray" id="AZt-UZ-kbi"/>
+                        <outletCollection property="textFields" destination="TK1-RP-Pbi" collectionClass="NSMutableArray" id="3ct-SP-Pdq"/>
+                        <outletCollection property="textFields" destination="VLT-mf-1KA" collectionClass="NSMutableArray" id="BBd-Nf-359"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94J-Lx-7D5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -191,7 +191,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="p09-1f-Ida"/>
                                                                 </constraints>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -218,7 +218,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="w83-hv-R07"/>
                                                                 </constraints>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
@@ -245,7 +245,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="tMK-H5-8Rt"/>
                                                                 </constraints>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
@@ -272,7 +272,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="1z8-fz-QWi"/>
                                                                 </constraints>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -303,6 +303,9 @@
                                                         <integer key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="signupAction:" destination="WRJ-jY-DKN" eventType="touchUpInside" id="Oel-RG-gdv"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -340,6 +343,14 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="titleLabel" destination="mEM-e8-hNS" id="t4a-xR-AQC"/>
+                        <outletCollection property="textFields" destination="Lex-cL-N4U" collectionClass="NSMutableArray" id="hbh-Lj-C3o"/>
+                        <outletCollection property="textFields" destination="HmQ-WV-rvb" collectionClass="NSMutableArray" id="aY1-xV-cRQ"/>
+                        <outletCollection property="textFields" destination="Vhh-Cu-zqN" collectionClass="NSMutableArray" id="X8q-E0-oRu"/>
+                        <outletCollection property="textFields" destination="2BE-ME-cJc" collectionClass="NSMutableArray" id="vI4-a1-JT5"/>
+                        <outletCollection property="textFieldBottomViews" destination="EUR-OP-4iM" collectionClass="NSMutableArray" id="1sl-sJ-aTx"/>
+                        <outletCollection property="textFieldBottomViews" destination="Dqm-yP-bgN" collectionClass="NSMutableArray" id="qaY-Qr-Z52"/>
+                        <outletCollection property="textFieldBottomViews" destination="Fcq-se-xNh" collectionClass="NSMutableArray" id="r12-PO-2sj"/>
+                        <outletCollection property="textFieldBottomViews" destination="sli-fr-AQE" collectionClass="NSMutableArray" id="fcu-dc-q5U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8O9-h7-4HN" userLabel="First Responder" sceneMemberID="firstResponder"/>

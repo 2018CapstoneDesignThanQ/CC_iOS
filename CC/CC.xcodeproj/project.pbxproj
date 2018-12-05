@@ -21,6 +21,14 @@
 		4915557B21B7866A00453356 /* twitter_heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915557A21B7866A00453356 /* twitter_heart.json */; };
 		4915557D21B7876A00453356 /* favorite.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915557C21B7876A00453356 /* favorite.json */; };
 		4915557F21B787AC00453356 /* like.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915557E21B787AC00453356 /* like.json */; };
+		4915558121B7A89400453356 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915558021B7A89400453356 /* APIService.swift */; };
+		4915558521B7A96A00453356 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915558421B7A96A00453356 /* AuthService.swift */; };
+		4915558721B7A98A00453356 /* DecodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915558621B7A98A00453356 /* DecodingService.swift */; };
+		4915558921B7AB1100453356 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915558821B7AB1100453356 /* NetworkService.swift */; };
+		4915558B21B7AB2800453356 /* AuthAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915558A21B7AB2800453356 /* AuthAdapter.swift */; };
+		4915558D21B7AF5B00453356 /* SignService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915558C21B7AF5B00453356 /* SignService.swift */; };
+		4915558F21B7B3A900453356 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915558E21B7B3A900453356 /* UIViewController+Alert.swift */; };
+		4915559121B7BB3B00453356 /* UIViewController+NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915559021B7BB3B00453356 /* UIViewController+NetworkError.swift */; };
 		4976661A21B4621F00AB98FB /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661921B4621F00AB98FB /* Sign.storyboard */; };
 		4976661C21B4622400AB98FB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661B21B4622400AB98FB /* Home.storyboard */; };
 		4976661E21B4623B00AB98FB /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661D21B4623B00AB98FB /* Notification.storyboard */; };
@@ -58,6 +66,14 @@
 		4915557A21B7866A00453356 /* twitter_heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = twitter_heart.json; sourceTree = "<group>"; };
 		4915557C21B7876A00453356 /* favorite.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favorite.json; sourceTree = "<group>"; };
 		4915557E21B787AC00453356 /* like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like.json; sourceTree = "<group>"; };
+		4915558021B7A89400453356 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		4915558421B7A96A00453356 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		4915558621B7A98A00453356 /* DecodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingService.swift; sourceTree = "<group>"; };
+		4915558821B7AB1100453356 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		4915558A21B7AB2800453356 /* AuthAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAdapter.swift; sourceTree = "<group>"; };
+		4915558C21B7AF5B00453356 /* SignService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignService.swift; sourceTree = "<group>"; };
+		4915558E21B7B3A900453356 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		4915559021B7BB3B00453356 /* UIViewController+NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NetworkError.swift"; sourceTree = "<group>"; };
 		4976661921B4621F00AB98FB /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		4976661B21B4622400AB98FB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		4976661D21B4623B00AB98FB /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
@@ -248,6 +264,8 @@
 				4976662921B5281600AB98FB /* UIColor+CC.swift */,
 				4976663921B56ED100AB98FB /* UIViewController+Navigationbar.swift */,
 				4976663B21B5738700AB98FB /* UILabel+Color.swift */,
+				4915558E21B7B3A900453356 /* UIViewController+Alert.swift */,
+				4915559021B7BB3B00453356 /* UIViewController+NetworkError.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -255,6 +273,12 @@
 		499656B221AEFFF200576437 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				4915558021B7A89400453356 /* APIService.swift */,
+				4915558421B7A96A00453356 /* AuthService.swift */,
+				4915558621B7A98A00453356 /* DecodingService.swift */,
+				4915558821B7AB1100453356 /* NetworkService.swift */,
+				4915558A21B7AB2800453356 /* AuthAdapter.swift */,
+				4915558C21B7AF5B00453356 /* SignService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -421,20 +445,28 @@
 			files = (
 				4976663421B56B1D00AB98FB /* LoginHomeViewController.swift in Sources */,
 				4976662821B5278900AB98FB /* UIView+CC.swift in Sources */,
+				4915558721B7A98A00453356 /* DecodingService.swift in Sources */,
 				4976663C21B5738700AB98FB /* UILabel+Color.swift in Sources */,
+				4915558D21B7AF5B00453356 /* SignService.swift in Sources */,
 				4976662421B5272700AB98FB /* UIStoryboard+CC.swift in Sources */,
 				4976662621B5275000AB98FB /* UIView+Shadow.swift in Sources */,
 				4915556421B6C9F700453356 /* TopMessageTableViewCell.swift in Sources */,
+				4915558521B7A96A00453356 /* AuthService.swift in Sources */,
+				4915559121B7BB3B00453356 /* UIViewController+NetworkError.swift in Sources */,
 				4915556C21B6CA3B00453356 /* MessageAnswerTableViewCell.swift in Sources */,
 				4976663621B56B2D00AB98FB /* SignUpViewController.swift in Sources */,
 				4915557021B6CA7000453356 /* MessageHeaderTableViewCell.swift in Sources */,
 				4976663221B52F3600AB98FB /* HomeViewController.swift in Sources */,
 				4915556821B6CA0500453356 /* MessageTableViewCell.swift in Sources */,
+				4915558921B7AB1100453356 /* NetworkService.swift in Sources */,
+				4915558F21B7B3A900453356 /* UIViewController+Alert.swift in Sources */,
 				4996569B21AEFFA600576437 /* AppDelegate.swift in Sources */,
 				4976662C21B52EEF00AB98FB /* NotificationMainViewController.swift in Sources */,
 				4976662221B5270D00AB98FB /* TableView+CC.swift in Sources */,
+				4915558B21B7AB2800453356 /* AuthAdapter.swift in Sources */,
 				4915555C21B6C41C00453356 /* AskHomeViewController.swift in Sources */,
 				4976663A21B56ED100AB98FB /* UIViewController+Navigationbar.swift in Sources */,
+				4915558121B7A89400453356 /* APIService.swift in Sources */,
 				4976662A21B5281600AB98FB /* UIColor+CC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

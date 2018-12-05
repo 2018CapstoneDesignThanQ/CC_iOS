@@ -1,20 +1,36 @@
 PODS:
+  - Alamofire (4.7.3)
+  - KeychainAccess (3.1.2)
+  - Kingfisher (4.10.1)
   - lottie-ios (2.5.2)
   - RAMAnimatedTabBarController (4.0.1)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
+  - Alamofire
+  - KeychainAccess
+  - Kingfisher
   - lottie-ios
   - RAMAnimatedTabBarController
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - KeychainAccess
+    - Kingfisher
     - lottie-ios
     - RAMAnimatedTabBarController
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   RAMAnimatedTabBarController: 677d6f7ec7e88b1089486f4db49b0a5067e8ad1c
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 8172bd308c7a2719d2a5327592d289921014b602
+PODFILE CHECKSUM: 1afbe198d55fc5aa8cc4dff1df92428a2d8c0e56
 
 COCOAPODS: 1.5.3
