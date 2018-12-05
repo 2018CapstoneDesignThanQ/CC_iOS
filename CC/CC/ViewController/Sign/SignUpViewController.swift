@@ -48,6 +48,7 @@ class SignUpViewController: UIViewController {
                              completion: nil)
                 } else {
                     self.signupNetwork()
+                    loading(.start)
                 }
             }
         }
@@ -60,8 +61,10 @@ class SignUpViewController: UIViewController {
                                     switch result {
                                     case .success(let data):
                                         self?.signupMessageAction(data)
+                                        self?.loading(.end)
                                     case .error(let err):
                                         self?.errorAction(error: err, confirmAction: nil)
+                                        self?.loading(.end)
                                     }
         }
     }
