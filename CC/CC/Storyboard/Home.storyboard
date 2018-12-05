@@ -100,8 +100,8 @@
                         <color key="backgroundColor" red="0.52941176469999995" green="0.69411764710000001" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fyi-CF-olI" firstAttribute="leading" secondItem="Uky-Hs-qUb" secondAttribute="leading" id="XkY-Tz-xwf"/>
-                            <constraint firstItem="fyi-CF-olI" firstAttribute="top" secondItem="Uky-Hs-qUb" secondAttribute="top" id="aSC-fJ-4CB"/>
                             <constraint firstItem="Uky-Hs-qUb" firstAttribute="trailing" secondItem="fyi-CF-olI" secondAttribute="trailing" id="ecL-ZB-A11"/>
+                            <constraint firstItem="fyi-CF-olI" firstAttribute="top" secondItem="Uky-Hs-qUb" secondAttribute="top" id="fEG-Pu-eX5"/>
                             <constraint firstItem="Uky-Hs-qUb" firstAttribute="bottom" secondItem="fyi-CF-olI" secondAttribute="bottom" id="zZO-uz-mf7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uky-Hs-qUb"/>
@@ -140,6 +140,7 @@
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstItem="3Ql-Gl-kbt" firstAttribute="centerY" secondItem="ed3-yw-fnH" secondAttribute="centerY" id="D8P-mJ-Q94"/>
                                 <constraint firstItem="Hpn-ql-w0u" firstAttribute="centerY" secondItem="3Ql-Gl-kbt" secondAttribute="centerY" id="VdT-Wr-0wZ"/>
@@ -151,6 +152,9 @@
                                     <real key="value" value="9"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="NxL-zx-0FD" appends="YES" id="N4x-d5-jnl"/>
+                            </connections>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask the speaker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEk-El-7Mt">
                             <rect key="frame" x="15" y="10" width="111" height="17"/>
@@ -170,8 +174,13 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="uKi-w4-rxG"/>
                 </view>
+                <tapGestureRecognizer id="NxL-zx-0FD">
+                    <connections>
+                        <action selector="goShareMyThoughtAction:" destination="oTD-jk-Sra" id="6o3-eX-g5b"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1602" y="152"/>
+            <point key="canvasLocation" x="1600.8" y="151.57421289355324"/>
         </scene>
     </scenes>
     <resources>

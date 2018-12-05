@@ -29,7 +29,7 @@ class AskHomeViewController: UIViewController {
     }
     
     struct Const {
-        static let headerHeight: CGFloat = 85.0
+        static let headerHeight: CGFloat = 90.0
     }
     
     override func viewDidLoad() {
@@ -38,6 +38,8 @@ class AskHomeViewController: UIViewController {
         self.tableViewInit()
     }
     
+    @IBAction func goShareMyThoughtAction(_ sender: Any) {
+    }
     
 
 }
