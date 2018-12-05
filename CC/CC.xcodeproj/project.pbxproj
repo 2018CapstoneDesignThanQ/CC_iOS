@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4915555C21B6C41C00453356 /* AskHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915555B21B6C41C00453356 /* AskHomeViewController.swift */; };
+		4915556421B6C9F700453356 /* TopMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915556221B6C9F700453356 /* TopMessageTableViewCell.swift */; };
+		4915556521B6C9F700453356 /* TopMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4915556321B6C9F700453356 /* TopMessageTableViewCell.xib */; };
+		4915556821B6CA0500453356 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915556621B6CA0500453356 /* MessageTableViewCell.swift */; };
+		4915556921B6CA0500453356 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4915556721B6CA0500453356 /* MessageTableViewCell.xib */; };
+		4915556C21B6CA3B00453356 /* MessageAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915556A21B6CA3B00453356 /* MessageAnswerTableViewCell.swift */; };
+		4915556D21B6CA3B00453356 /* MessageAnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4915556B21B6CA3B00453356 /* MessageAnswerTableViewCell.xib */; };
+		4915557021B6CA7000453356 /* MessageHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915556E21B6CA7000453356 /* MessageHeaderTableViewCell.swift */; };
+		4915557121B6CA7000453356 /* MessageHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4915556F21B6CA7000453356 /* MessageHeaderTableViewCell.xib */; };
+		4915557721B77C2200453356 /* pop_heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915557621B7784600453356 /* pop_heart.json */; };
+		4915557921B77C6A00453356 /* heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915557821B77C6A00453356 /* heart.json */; };
+		4915557B21B7866A00453356 /* twitter_heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915557A21B7866A00453356 /* twitter_heart.json */; };
+		4915557D21B7876A00453356 /* favorite.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915557C21B7876A00453356 /* favorite.json */; };
+		4915557F21B787AC00453356 /* like.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915557E21B787AC00453356 /* like.json */; };
 		4976661A21B4621F00AB98FB /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661921B4621F00AB98FB /* Sign.storyboard */; };
 		4976661C21B4622400AB98FB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661B21B4622400AB98FB /* Home.storyboard */; };
 		4976661E21B4623B00AB98FB /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661D21B4623B00AB98FB /* Notification.storyboard */; };
@@ -30,6 +44,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4915555B21B6C41C00453356 /* AskHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskHomeViewController.swift; sourceTree = "<group>"; };
+		4915556221B6C9F700453356 /* TopMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMessageTableViewCell.swift; sourceTree = "<group>"; };
+		4915556321B6C9F700453356 /* TopMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopMessageTableViewCell.xib; sourceTree = "<group>"; };
+		4915556621B6CA0500453356 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		4915556721B6CA0500453356 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		4915556A21B6CA3B00453356 /* MessageAnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAnswerTableViewCell.swift; sourceTree = "<group>"; };
+		4915556B21B6CA3B00453356 /* MessageAnswerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageAnswerTableViewCell.xib; sourceTree = "<group>"; };
+		4915556E21B6CA7000453356 /* MessageHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		4915556F21B6CA7000453356 /* MessageHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		4915557621B7784600453356 /* pop_heart.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pop_heart.json; sourceTree = "<group>"; };
+		4915557821B77C6A00453356 /* heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heart.json; sourceTree = "<group>"; };
+		4915557A21B7866A00453356 /* twitter_heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = twitter_heart.json; sourceTree = "<group>"; };
+		4915557C21B7876A00453356 /* favorite.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favorite.json; sourceTree = "<group>"; };
+		4915557E21B787AC00453356 /* like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like.json; sourceTree = "<group>"; };
 		4976661921B4621F00AB98FB /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		4976661B21B4622400AB98FB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		4976661D21B4623B00AB98FB /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
@@ -68,6 +96,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4915556121B6C9C400453356 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4915556E21B6CA7000453356 /* MessageHeaderTableViewCell.swift */,
+				4915556F21B6CA7000453356 /* MessageHeaderTableViewCell.xib */,
+				4915556221B6C9F700453356 /* TopMessageTableViewCell.swift */,
+				4915556321B6C9F700453356 /* TopMessageTableViewCell.xib */,
+				4915556621B6CA0500453356 /* MessageTableViewCell.swift */,
+				4915556721B6CA0500453356 /* MessageTableViewCell.xib */,
+				4915556A21B6CA3B00453356 /* MessageAnswerTableViewCell.swift */,
+				4915556B21B6CA3B00453356 /* MessageAnswerTableViewCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4915557521B7783F00453356 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				4915557E21B787AC00453356 /* like.json */,
+				4915557C21B7876A00453356 /* favorite.json */,
+				4915557A21B7866A00453356 /* twitter_heart.json */,
+				4915557621B7784600453356 /* pop_heart.json */,
+				4915557821B77C6A00453356 /* heart.json */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		4976662D21B52EFF00AB98FB /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				4976663121B52F3600AB98FB /* HomeViewController.swift */,
+				4915555B21B6C41C00453356 /* AskHomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -122,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				4996569A21AEFFA600576437 /* AppDelegate.swift */,
+				4915557521B7783F00453356 /* Animation */,
 				499656B021AEFFB800576437 /* ViewController */,
 				499656AF21AEFFB700576437 /* Storyboard */,
 				499656AE21AEFFB600576437 /* Util */,
@@ -205,6 +262,7 @@
 		499656B321AF001500576437 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4915556121B6C9C400453356 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,13 +344,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4915557B21B7866A00453356 /* twitter_heart.json in Resources */,
+				4915557721B77C2200453356 /* pop_heart.json in Resources */,
 				499656A521AEFFA600576437 /* LaunchScreen.storyboard in Resources */,
+				4915556D21B6CA3B00453356 /* MessageAnswerTableViewCell.xib in Resources */,
 				4976661C21B4622400AB98FB /* Home.storyboard in Resources */,
 				499656A221AEFFA600576437 /* Assets.xcassets in Resources */,
+				4915557F21B787AC00453356 /* like.json in Resources */,
 				499656A021AEFFA600576437 /* Main.storyboard in Resources */,
+				4915556921B6CA0500453356 /* MessageTableViewCell.xib in Resources */,
 				4976662021B4624200AB98FB /* MyPage.storyboard in Resources */,
 				4976661A21B4621F00AB98FB /* Sign.storyboard in Resources */,
+				4915557921B77C6A00453356 /* heart.json in Resources */,
 				4976661E21B4623B00AB98FB /* Notification.storyboard in Resources */,
+				4915556521B6C9F700453356 /* TopMessageTableViewCell.xib in Resources */,
+				4915557D21B7876A00453356 /* favorite.json in Resources */,
+				4915557121B6CA7000453356 /* MessageHeaderTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,12 +376,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CC/Pods-CC-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -355,11 +424,16 @@
 				4976663C21B5738700AB98FB /* UILabel+Color.swift in Sources */,
 				4976662421B5272700AB98FB /* UIStoryboard+CC.swift in Sources */,
 				4976662621B5275000AB98FB /* UIView+Shadow.swift in Sources */,
+				4915556421B6C9F700453356 /* TopMessageTableViewCell.swift in Sources */,
+				4915556C21B6CA3B00453356 /* MessageAnswerTableViewCell.swift in Sources */,
 				4976663621B56B2D00AB98FB /* SignUpViewController.swift in Sources */,
+				4915557021B6CA7000453356 /* MessageHeaderTableViewCell.swift in Sources */,
 				4976663221B52F3600AB98FB /* HomeViewController.swift in Sources */,
+				4915556821B6CA0500453356 /* MessageTableViewCell.swift in Sources */,
 				4996569B21AEFFA600576437 /* AppDelegate.swift in Sources */,
 				4976662C21B52EEF00AB98FB /* NotificationMainViewController.swift in Sources */,
 				4976662221B5270D00AB98FB /* TableView+CC.swift in Sources */,
+				4915555C21B6C41C00453356 /* AskHomeViewController.swift in Sources */,
 				4976663A21B56ED100AB98FB /* UIViewController+Navigationbar.swift in Sources */,
 				4976662A21B5281600AB98FB /* UIColor+CC.swift in Sources */,
 			);
@@ -511,6 +585,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JDW2U9U8KM;
 				INFOPLIST_FILE = "$(SRCROOT)/CC/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,6 +605,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JDW2U9U8KM;
 				INFOPLIST_FILE = "$(SRCROOT)/CC/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

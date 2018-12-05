@@ -8,5 +8,6 @@ target 'CC' do
   # Pods for CC
   pod 'RAMAnimatedTabBarController'
 
-
+  pod 'lottie-ios'
+  
 end
