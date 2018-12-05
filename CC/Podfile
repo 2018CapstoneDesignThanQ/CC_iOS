@@ -10,4 +10,10 @@ target 'CC' do
 
   pod 'lottie-ios'
   
+  # Pods for network
+  pod 'KeychainAccess'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'Kingfisher'
+  
 end

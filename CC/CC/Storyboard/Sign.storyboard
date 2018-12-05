@@ -146,8 +146,8 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="7De-rX-wEb"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="textFields" destination="TK1-RP-Pbi" id="ygj-yU-r9R"/>
-                        <outletCollection property="textFields" destination="VLT-mf-1KA" collectionClass="NSMutableArray" id="AZt-UZ-kbi"/>
+                        <outletCollection property="textFields" destination="TK1-RP-Pbi" collectionClass="NSMutableArray" id="3ct-SP-Pdq"/>
+                        <outletCollection property="textFields" destination="VLT-mf-1KA" collectionClass="NSMutableArray" id="BBd-Nf-359"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94J-Lx-7D5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -166,16 +166,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8e5-uU-LVI">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="706"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="808.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEM-e8-hNS">
-                                                <rect key="frame" x="125.5" y="137.5" width="124.5" height="19.5"/>
+                                                <rect key="frame" x="125.5" y="140" width="124.5" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="72v-wg-LIw">
-                                                <rect key="frame" x="45" y="202" width="285" height="256"/>
+                                                <rect key="frame" x="45" y="204.5" width="285" height="256"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yJ2-4e-58p">
                                                         <rect key="frame" x="0.0" y="0.0" width="285" height="49"/>
@@ -191,7 +191,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="p09-1f-Ida"/>
                                                                 </constraints>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -218,7 +218,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="w83-hv-R07"/>
                                                                 </constraints>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
@@ -245,7 +245,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="tMK-H5-8Rt"/>
                                                                 </constraints>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
@@ -272,7 +272,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="1z8-fz-QWi"/>
                                                                 </constraints>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -288,7 +288,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBe-Vd-gNP">
-                                                <rect key="frame" x="138.5" y="498" width="98" height="38"/>
+                                                <rect key="frame" x="138.5" y="500.5" width="98" height="38"/>
                                                 <color key="backgroundColor" red="0.3411764706" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="98" id="cJR-He-8np"/>
@@ -303,16 +303,19 @@
                                                         <integer key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="signupAction:" destination="WRJ-jY-DKN" eventType="touchUpInside" id="Oel-RG-gdv"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="72v-wg-LIw" firstAttribute="top" secondItem="mEM-e8-hNS" secondAttribute="bottom" constant="45" id="AWc-v9-AY7"/>
+                                            <constraint firstItem="mEM-e8-hNS" firstAttribute="top" secondItem="8e5-uU-LVI" secondAttribute="top" constant="140" id="G3I-N2-oCg"/>
                                             <constraint firstItem="72v-wg-LIw" firstAttribute="leading" secondItem="8e5-uU-LVI" secondAttribute="leading" constant="45" id="Jxb-Ws-OWs"/>
                                             <constraint firstAttribute="trailing" secondItem="72v-wg-LIw" secondAttribute="trailing" constant="45" id="XvK-BS-hsB"/>
                                             <constraint firstItem="FBe-Vd-gNP" firstAttribute="top" secondItem="72v-wg-LIw" secondAttribute="bottom" constant="40" id="bEP-0K-XXf"/>
                                             <constraint firstItem="mEM-e8-hNS" firstAttribute="centerX" secondItem="8e5-uU-LVI" secondAttribute="centerX" id="bw4-tp-sgU"/>
-                                            <constraint firstItem="72v-wg-LIw" firstAttribute="centerY" secondItem="8e5-uU-LVI" secondAttribute="centerY" constant="-23" id="lY8-hg-H9r"/>
-                                            <constraint firstAttribute="bottom" secondItem="FBe-Vd-gNP" secondAttribute="bottom" constant="170" id="r3o-sn-p9V"/>
+                                            <constraint firstAttribute="bottom" secondItem="FBe-Vd-gNP" secondAttribute="bottom" constant="270" id="r3o-sn-p9V"/>
                                             <constraint firstItem="FBe-Vd-gNP" firstAttribute="centerX" secondItem="72v-wg-LIw" secondAttribute="centerX" id="zez-tt-D0j"/>
                                         </constraints>
                                     </view>
@@ -339,7 +342,16 @@
                     <navigationItem key="navigationItem" id="hkv-qX-xAC"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="scrollView" destination="5A1-hO-Jps" id="GZp-Q5-rTS"/>
                         <outlet property="titleLabel" destination="mEM-e8-hNS" id="t4a-xR-AQC"/>
+                        <outletCollection property="textFields" destination="Lex-cL-N4U" collectionClass="NSMutableArray" id="hbh-Lj-C3o"/>
+                        <outletCollection property="textFields" destination="HmQ-WV-rvb" collectionClass="NSMutableArray" id="aY1-xV-cRQ"/>
+                        <outletCollection property="textFields" destination="Vhh-Cu-zqN" collectionClass="NSMutableArray" id="X8q-E0-oRu"/>
+                        <outletCollection property="textFields" destination="2BE-ME-cJc" collectionClass="NSMutableArray" id="vI4-a1-JT5"/>
+                        <outletCollection property="textFieldBottomViews" destination="EUR-OP-4iM" collectionClass="NSMutableArray" id="1sl-sJ-aTx"/>
+                        <outletCollection property="textFieldBottomViews" destination="Dqm-yP-bgN" collectionClass="NSMutableArray" id="qaY-Qr-Z52"/>
+                        <outletCollection property="textFieldBottomViews" destination="Fcq-se-xNh" collectionClass="NSMutableArray" id="r12-PO-2sj"/>
+                        <outletCollection property="textFieldBottomViews" destination="sli-fr-AQE" collectionClass="NSMutableArray" id="fcu-dc-q5U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8O9-h7-4HN" userLabel="First Responder" sceneMemberID="firstResponder"/>
