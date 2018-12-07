@@ -34,6 +34,7 @@
 		4915559921B7F64200453356 /* loading2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915559821B7F64200453356 /* loading2.json */; };
 		4915559B21B7F64A00453356 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915559A21B7F64A00453356 /* loading.json */; };
 		491555A121B8CA4C00453356 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491555A021B8CA4C00453356 /* SocketIOManager.swift */; };
+		491555A321BA239B00453356 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491555A221BA239B00453356 /* User.swift */; };
 		4976661A21B4621F00AB98FB /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661921B4621F00AB98FB /* Sign.storyboard */; };
 		4976661C21B4622400AB98FB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661B21B4622400AB98FB /* Home.storyboard */; };
 		4976661E21B4623B00AB98FB /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661D21B4623B00AB98FB /* Notification.storyboard */; };
@@ -84,6 +85,7 @@
 		4915559821B7F64200453356 /* loading2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading2.json; sourceTree = "<group>"; };
 		4915559A21B7F64A00453356 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		491555A021B8CA4C00453356 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		491555A221BA239B00453356 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4976661921B4621F00AB98FB /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		4976661B21B4622400AB98FB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		4976661D21B4623B00AB98FB /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		499656AC21AEFFB300576437 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				491555A221BA239B00453356 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				4976662421B5272700AB98FB /* UIStoryboard+CC.swift in Sources */,
 				4976662621B5275000AB98FB /* UIView+Shadow.swift in Sources */,
 				4915559721B7F3B900453356 /* UIViewController+Loading.swift in Sources */,
+				491555A321BA239B00453356 /* User.swift in Sources */,
 				4915556421B6C9F700453356 /* TopMessageTableViewCell.swift in Sources */,
 				4915558521B7A96A00453356 /* AuthService.swift in Sources */,
 				4915559121B7BB3B00453356 /* UIViewController+NetworkError.swift in Sources */,

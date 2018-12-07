@@ -14,7 +14,7 @@ struct SignService: APIService, DecodingService {
     static let shared = SignService()
     
     public func signUp(email: String, nickName: String, password: String,
-                       completion: @escaping (Result<String>) -> Void) {
+                       completion: @escaping (Result<User>) -> Void) {
         let params = [
             "mail" : email,
             "nickname" : nickName,
@@ -25,7 +25,25 @@ struct SignService: APIService, DecodingService {
                                       method: .post, parameters: params) { (result) in
             switch result {
             case .success(let data):
-                completion(.success(JSON(data)["message"].string ?? ""))
+                completion(self.decodeJSONData(User.self, data: data))
+            case .error(let err):
+                completion(.error(err))
+            }
+        }
+    }
+    
+    public func signIn(email: String, password: String,
+                       completion: @escaping (Result<User>) -> Void) {
+        let params = [
+            "mail" : email,
+            "password" : password
+        ]
+        
+        NetworkService.shared.request(url("users/signin"),
+                                      method: .post, parameters: params) { (result) in
+            switch result {
+            case .success(let data):
+                completion(self.decodeJSONData(User.self, data: data))
             case .error(let err):
                 completion(.error(err))
             }

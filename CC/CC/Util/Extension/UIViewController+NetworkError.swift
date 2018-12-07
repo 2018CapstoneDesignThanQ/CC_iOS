@@ -18,7 +18,7 @@ extension UIViewController {
         switch error {
         case ErrorMessage.connetionError(let err):
             print(err.localizedDescription)
-            self.addAlert(title: "네트워킹 오류", message: "연결 상태를 확인해주세요. :(",
+            self.addAlert(title: "네트워킹 오류", message: "연결 상태를 확인해주세요 :(",
                           actions: [confirm], completion: nil)
         case ErrorMessage.parameterEncodeError(let err):
             print(err.localizedDescription)

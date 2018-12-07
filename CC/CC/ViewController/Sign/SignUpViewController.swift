@@ -42,14 +42,16 @@ class SignUpViewController: UIViewController {
     
     private func signupAction() {
         for textField in textFields {
+            textField.resignFirstResponder()
+            
             if textField.text?.isEmpty ?? true {
-                addAlert(title: "로그인 오류", message: "모든 항목을 채워주세요!",
+                addAlert(title: "회원가입 오류", message: "모든 항목을 채워주세요!",
                          actions: [UIAlertAction(title: "확인", style: .default, handler: nil)],
                          completion: nil)
             } else if textField == textFields.last &&
                 !(textField.text?.isEmpty ?? true) {
                 if textFields[1].text != textFields[2].text {
-                    addAlert(title: "로그인 오류", message: "비밀번호를 확인해주세요.",
+                    addAlert(title: "회원가입 오류", message: "비밀번호를 확인해주세요.",
                              actions: [UIAlertAction(title: "확인", style: .default, handler: nil)],
                              completion: nil)
                 } else {
@@ -66,10 +68,14 @@ class SignUpViewController: UIViewController {
                                   password: textFields[1].text ?? "") { [weak self] (result) in
                                     switch result {
                                     case .success(let data):
-                                        self?.signupMessageAction(data)
+                                        try? AuthService.shared.saveToken(data.token)
+                                        self?.signupMessageAction(data.message)
                                         self?.loading(.end)
                                     case .error(let err):
-                                        self?.errorAction(error: err, confirmAction: nil)
+                                        self?.errorAction(error: err,
+                                                          confirmAction: nil) { [weak self] (message) in
+                                            self?.signupMessageAction(message)
+                                        }
                                         self?.loading(.end)
                                     }
         }
@@ -82,7 +88,7 @@ class SignUpViewController: UIViewController {
             self.present(tabBarController, animated: true, completion: nil)
             
         } else if message == "Duplicate Mail" {
-            addAlert(title: "로그인 오류",
+            addAlert(title: "회원가입 오류",
                      message: "이미 존재하는 이메일 입니다 :(",
                      actions: [UIAlertAction(title: "확인", style: .default, handler: nil)],
                      completion: nil)
@@ -137,9 +143,11 @@ extension SignUpViewController: UITextFieldDelegate {
 }
 
 extension SignUpViewController {
-    func keyboardInit() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    private func keyboardInit() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func tapBackground(_ sender: UITapGestureRecognizer?) {
