@@ -14,10 +14,10 @@ class AskHomeViewController: UIViewController {
     
     @IBOutlet var askMyThoughtView: UIView!
     
-    var roomId: String?
+    public var roomId: String?
     
-    var classData: ClassData?
-    var messages: [QuestionData] = []
+    private var classData: ClassData?
+    private var messages: [QuestionData] = []
     
     enum Section: Int, CaseIterable {
         case header
@@ -52,9 +52,12 @@ class AskHomeViewController: UIViewController {
     }
     
     @IBAction func goShareMyThoughtAction(_ sender: Any) {
-        if let naviController = storyboard(.home).instantiateViewController(withIdentifier: Const.navi) as? UINavigationController {
-            self.present(naviController, animated: true, completion: nil)
-        }
+//        if let naviController = storyboard(.home).instantiateViewController(withIdentifier: Const.navi) as? UINavigationController {
+//            self.present(naviController, animated: true, completion: nil)
+//        }
+        let viewController = storyboard(.home).instantiateViewController(ofType: AskViewController.self)
+        viewController.roomId = self.roomId
+        self.present(viewController, animated: true, completion: nil)
     }
     
     private func setupUI() {
@@ -87,24 +90,31 @@ class AskHomeViewController: UIViewController {
             guard let `self` = self else { return }
             switch result {
             case .success(let data):
+                try? ClassService.shared.saveRoomId(self.roomId ?? "")
+                
                 self.classData = data.classData
                 self.navigationItem.title = data.classData.title
                 self.messages = data.questionData
                 self.messagesTableView.reloadData()
+                
                 self.navigationController?.setViewControllers([self], animated: true)
                 self.loading(.end)
             case .error(let err):
                 self.errorAction(error: err, confirmAction: nil) { [weak self] (message) in
-                    if message == "This Class  Does Not Exist" {
-                        self?.addAlert(title: "",
-                                      message: "코드가 유효하지 않습니다.",
-                                      actions: [UIAlertAction(title: "확인", style: .default, handler: { (_) in
-                                        self?.navigationController?.popViewController(animated: true)
-                                      })], completion: nil)
-                    }
+                    self?.getClassMessageAction(message)
                 }
                 self.loading(.end)
             }
+        }
+    }
+    
+    private func getClassMessageAction(_ message: String) {
+        if message == "This Class  Does Not Exist" {
+            self.addAlert(title: "",
+                           message: "코드가 유효하지 않습니다.",
+                           actions: [UIAlertAction(title: "확인", style: .default, handler: { (_) in
+                            self.navigationController?.popViewController(animated: true)
+                           })], completion: nil)
         }
     }
 }

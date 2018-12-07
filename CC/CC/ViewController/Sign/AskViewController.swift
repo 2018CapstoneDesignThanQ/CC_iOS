@@ -13,6 +13,8 @@ class AskViewController: UIViewController {
     
     @IBOutlet weak var sendButtonBottomConstraint: NSLayoutConstraint!
     
+    public var roomId: String?
+    
     private var keyboardDismissGesture: UITapGestureRecognizer?
     
     override func viewDidLoad() {
@@ -29,14 +31,33 @@ class AskViewController: UIViewController {
     }
     
     @IBAction func sendAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.questionTextView.resignFirstResponder()
+        
+        if self.questionTextView.textColor == .textGray {
+            self.sendMessage()
+            loading(.start)
+        }
     }
     
     private func setupUI() {
         setTranslucentNavigation()
-//        cancelTranslucentNavigation()
         
         textViewDidEndEditing(self.questionTextView)
+    }
+    
+    private func sendMessage() {
+        ClassService.shared.sendMessageAtClass(roomId: self.roomId ?? "",
+                                               content: self.questionTextView.text) { [weak self] (result) in
+                                                switch result {
+                                                case .success(let data):
+                                                    print(data)
+                                                    self?.dismiss(animated: true, completion: nil)
+                                                    self?.loading(.end)
+                                                case .error(let err):
+                                                    self?.errorAction(error: err, confirmAction: nil)
+                                                    self?.loading(.end)
+                                                }
+        }
     }
 }
 

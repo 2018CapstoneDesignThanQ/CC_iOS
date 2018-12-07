@@ -267,8 +267,7 @@
         <!--Ask View Controller-->
         <scene sceneID="At3-ko-vTd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0hC-ma-1cF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="AskViewController" id="AOj-VG-gSg" customClass="AskViewController" customModule="CC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AskViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="AOj-VG-gSg" customClass="AskViewController" customModule="CC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lxv-RR-Sxu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -340,6 +339,7 @@
                         <outlet property="questionTextView" destination="HDS-30-b5u" id="szo-Ev-Uhu"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0hC-ma-1cF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3820" y="151.57421289355324"/>
         </scene>
