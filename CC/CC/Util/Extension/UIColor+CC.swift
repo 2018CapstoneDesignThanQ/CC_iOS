@@ -11,7 +11,7 @@ import UIKit
 
 extension UIColor {
     class var defaultBlue: UIColor {
-        return #colorLiteral(red: 0.5803921569, green: 0.7647058824, blue: 0.8196078431, alpha: 1)
+        return #colorLiteral(red: 0.5294117647, green: 0.768627451, blue: 0.8274509804, alpha: 1)
     }
     
     class var teal: UIColor {

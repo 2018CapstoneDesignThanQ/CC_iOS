@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJ5-uc-8wz">
-                                <rect key="frame" x="30" y="321" width="315" height="45"/>
+                                <rect key="frame" x="30" y="291" width="315" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iS-yc-D1S">
                                         <rect key="frame" x="275" y="9.5" width="26" height="26"/>
@@ -64,9 +64,9 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.52941176469999995" green="0.69411764710000001" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.52941176470588236" green="0.76862745098039209" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WJ5-uc-8wz" firstAttribute="centerY" secondItem="bZB-Ru-YIx" secondAttribute="centerY" id="6dx-5t-acl"/>
+                            <constraint firstItem="WJ5-uc-8wz" firstAttribute="centerY" secondItem="bZB-Ru-YIx" secondAttribute="centerY" constant="-30" id="6dx-5t-acl"/>
                             <constraint firstItem="bZB-Ru-YIx" firstAttribute="trailing" secondItem="WJ5-uc-8wz" secondAttribute="trailing" constant="30" id="EiT-HZ-x2a"/>
                             <constraint firstItem="WJ5-uc-8wz" firstAttribute="leading" secondItem="bZB-Ru-YIx" secondAttribute="leading" constant="30" id="kqx-Su-cdP"/>
                         </constraints>
@@ -97,7 +97,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.52941176469999995" green="0.69411764710000001" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.52941176470588236" green="0.76862745098039209" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fyi-CF-olI" firstAttribute="leading" secondItem="Uky-Hs-qUb" secondAttribute="leading" id="XkY-Tz-xwf"/>
                             <constraint firstItem="Uky-Hs-qUb" firstAttribute="trailing" secondItem="fyi-CF-olI" secondAttribute="trailing" id="ecL-ZB-A11"/>

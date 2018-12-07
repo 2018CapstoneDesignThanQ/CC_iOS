@@ -65,7 +65,7 @@
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="roundType">
                                                         <integer key="value" value="0"/>
@@ -126,7 +126,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.52941176469999995" green="0.69411764710000001" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.52941176469999995" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mfx-Ga-JiC" firstAttribute="trailing" secondItem="RIO-fA-KVK" secondAttribute="trailing" id="5bg-RT-Hua"/>
                             <constraint firstItem="OE6-pX-5jO" firstAttribute="trailing" secondItem="RIO-fA-KVK" secondAttribute="trailing" constant="70" id="93i-mM-K2T"/>
@@ -328,7 +328,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.52941176469999995" green="0.69411764710000001" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.52941176469999995" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5A1-hO-Jps" firstAttribute="leading" secondItem="1NE-cj-f6d" secondAttribute="leading" id="3hG-uz-C0d"/>
                             <constraint firstItem="8e5-uU-LVI" firstAttribute="height" secondItem="GyG-6v-hB7" secondAttribute="height" priority="1" id="5RW-sQ-Uvd"/>

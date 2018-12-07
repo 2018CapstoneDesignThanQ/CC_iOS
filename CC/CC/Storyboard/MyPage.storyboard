@@ -17,7 +17,7 @@
                     <view key="view" contentMode="scaleToFill" id="AVa-Dw-C87">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.52941176469999995" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4zQ-Ew-Ye2"/>
                     </view>
                     <navigationItem key="navigationItem" id="htL-ML-igk"/>
