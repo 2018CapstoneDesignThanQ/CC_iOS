@@ -33,6 +33,7 @@
 		4915559721B7F3B900453356 /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915559621B7F3B900453356 /* UIViewController+Loading.swift */; };
 		4915559921B7F64200453356 /* loading2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915559821B7F64200453356 /* loading2.json */; };
 		4915559B21B7F64A00453356 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915559A21B7F64A00453356 /* loading.json */; };
+		491555A121B8CA4C00453356 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491555A021B8CA4C00453356 /* SocketIOManager.swift */; };
 		4976661A21B4621F00AB98FB /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661921B4621F00AB98FB /* Sign.storyboard */; };
 		4976661C21B4622400AB98FB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661B21B4622400AB98FB /* Home.storyboard */; };
 		4976661E21B4623B00AB98FB /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661D21B4623B00AB98FB /* Notification.storyboard */; };
@@ -82,6 +83,7 @@
 		4915559621B7F3B900453356 /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
 		4915559821B7F64200453356 /* loading2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading2.json; sourceTree = "<group>"; };
 		4915559A21B7F64A00453356 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		491555A021B8CA4C00453356 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		4976661921B4621F00AB98FB /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		4976661B21B4622400AB98FB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		4976661D21B4623B00AB98FB /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				4915558821B7AB1100453356 /* NetworkService.swift */,
 				4915558A21B7AB2800453356 /* AuthAdapter.swift */,
 				4915558C21B7AF5B00453356 /* SignService.swift */,
+				491555A021B8CA4C00453356 /* SocketIOManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -413,14 +416,26 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CC/Pods-CC-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +496,7 @@
 				4976662221B5270D00AB98FB /* TableView+CC.swift in Sources */,
 				4915558B21B7AB2800453356 /* AuthAdapter.swift in Sources */,
 				4915555C21B6C41C00453356 /* AskHomeViewController.swift in Sources */,
+				491555A121B8CA4C00453356 /* SocketIOManager.swift in Sources */,
 				4976663A21B56ED100AB98FB /* UIViewController+Navigationbar.swift in Sources */,
 				4915558121B7A89400453356 /* APIService.swift in Sources */,
 				4976662A21B5281600AB98FB /* UIColor+CC.swift in Sources */,
