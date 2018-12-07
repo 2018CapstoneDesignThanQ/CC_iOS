@@ -16,4 +16,6 @@ target 'CC' do
   pod 'SwiftyJSON'
   pod 'Kingfisher'
   
+  pod 'Socket.IO-Client-Swift', '~> 13.3.0'
+  
 end
