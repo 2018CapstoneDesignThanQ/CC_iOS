@@ -35,6 +35,9 @@
 		4915559B21B7F64A00453356 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 4915559A21B7F64A00453356 /* loading.json */; };
 		491555A121B8CA4C00453356 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491555A021B8CA4C00453356 /* SocketIOManager.swift */; };
 		491555A321BA239B00453356 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491555A221BA239B00453356 /* User.swift */; };
+		491555A721BA446B00453356 /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491555A621BA446B00453356 /* AskViewController.swift */; };
+		491555A921BA67D000453356 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491555A821BA67D000453356 /* Class.swift */; };
+		491555AB21BA682F00453356 /* ClassService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491555AA21BA682F00453356 /* ClassService.swift */; };
 		4976661A21B4621F00AB98FB /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661921B4621F00AB98FB /* Sign.storyboard */; };
 		4976661C21B4622400AB98FB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661B21B4622400AB98FB /* Home.storyboard */; };
 		4976661E21B4623B00AB98FB /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661D21B4623B00AB98FB /* Notification.storyboard */; };
@@ -86,6 +89,9 @@
 		4915559A21B7F64A00453356 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		491555A021B8CA4C00453356 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		491555A221BA239B00453356 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		491555A621BA446B00453356 /* AskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AskViewController.swift; path = /Users/ihyejin/Documents/CC/CC/CC/ViewController/Sign/AskViewController.swift; sourceTree = "<absolute>"; };
+		491555A821BA67D000453356 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		491555AA21BA682F00453356 /* ClassService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassService.swift; sourceTree = "<group>"; };
 		4976661921B4621F00AB98FB /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		4976661B21B4622400AB98FB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		4976661D21B4623B00AB98FB /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 			children = (
 				4976663121B52F3600AB98FB /* HomeViewController.swift */,
 				4915555B21B6C41C00453356 /* AskHomeViewController.swift */,
+				491555A621BA446B00453356 /* AskViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -223,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				491555A221BA239B00453356 /* User.swift */,
+				491555A821BA67D000453356 /* Class.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,13 +297,14 @@
 		499656B221AEFFF200576437 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				491555A021B8CA4C00453356 /* SocketIOManager.swift */,
 				4915558021B7A89400453356 /* APIService.swift */,
 				4915558421B7A96A00453356 /* AuthService.swift */,
 				4915558621B7A98A00453356 /* DecodingService.swift */,
 				4915558821B7AB1100453356 /* NetworkService.swift */,
 				4915558A21B7AB2800453356 /* AuthAdapter.swift */,
 				4915558C21B7AF5B00453356 /* SignService.swift */,
-				491555A021B8CA4C00453356 /* SocketIOManager.swift */,
+				491555AA21BA682F00453356 /* ClassService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -493,11 +502,14 @@
 				4915557021B6CA7000453356 /* MessageHeaderTableViewCell.swift in Sources */,
 				4976663221B52F3600AB98FB /* HomeViewController.swift in Sources */,
 				4915556821B6CA0500453356 /* MessageTableViewCell.swift in Sources */,
+				491555A721BA446B00453356 /* AskViewController.swift in Sources */,
 				4915558921B7AB1100453356 /* NetworkService.swift in Sources */,
+				491555AB21BA682F00453356 /* ClassService.swift in Sources */,
 				4915558F21B7B3A900453356 /* UIViewController+Alert.swift in Sources */,
 				4996569B21AEFFA600576437 /* AppDelegate.swift in Sources */,
 				4976662C21B52EEF00AB98FB /* NotificationMainViewController.swift in Sources */,
 				4976662221B5270D00AB98FB /* TableView+CC.swift in Sources */,
+				491555A921BA67D000453356 /* Class.swift in Sources */,
 				4915558B21B7AB2800453356 /* AuthAdapter.swift in Sources */,
 				4915555C21B6C41C00453356 /* AskHomeViewController.swift in Sources */,
 				491555A121B8CA4C00453356 /* SocketIOManager.swift in Sources */,

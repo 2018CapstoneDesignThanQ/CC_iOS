@@ -14,13 +14,17 @@ class AskHomeViewController: UIViewController {
     
     @IBOutlet var askMyThoughtView: UIView!
     
-    var messages: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    var roomId: String?
+    
+    var classData: ClassData?
+    var messages: [QuestionData] = []
     
     enum Section: Int, CaseIterable {
         case header
         case topMessageHeader
         case topMessage
         case messageHeader
+        case message
     }
     
     enum MessageType: Int, CaseIterable {
@@ -30,18 +34,69 @@ class AskHomeViewController: UIViewController {
     
     struct Const {
         static let headerHeight: CGFloat = 90.0
+        
+        static let navi: String = "goAskQuestionNavi"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableViewInit()
+        self.setupData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.setupUI()
     }
     
     @IBAction func goShareMyThoughtAction(_ sender: Any) {
+        if let naviController = storyboard(.home).instantiateViewController(withIdentifier: Const.navi) as? UINavigationController {
+            self.present(naviController, animated: true, completion: nil)
+        }
     }
     
-
+    private func setupUI() {
+        self.setTranslucentNavigation()
+    }
+    
+    private func setupData() {
+        loading(.start)
+        self.getClassNetwork()
+        SocketIOManager.shared.sendRoomID()
+        SocketIOManager.shared.getChatMessage() { [weak self] result in
+            DispatchQueue.main.async {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                let message = QuestionData(nickname: result["nickname"].string ?? "",
+                                           questionID: nil,
+                                           userFk: result["user"].int ?? 0,
+                                           classFk: Int(self?.roomId ?? ""),
+                                           content: result["content"].string ?? "",
+                                           regTime: formatter.date(from: result["time"].string ?? "") ?? Date(),
+                                           likeCnt: 0)
+                self?.messages.append(message)
+                self?.messagesTableView.reloadData()
+            }
+        }
+    }
+    
+    private func getClassNetwork() {
+        ClassService.shared.getClass(roomId: self.roomId ?? "") { [weak self] (result) in
+            switch result {
+            case .success(let data):
+                self?.classData = data.classData
+                self?.navigationItem.title = data.classData.title
+                self?.messages = data.questionData
+                self?.messagesTableView.reloadData()
+                self?.loading(.end)
+            case .error(let err):
+                self?.errorAction(error: err, confirmAction: nil)
+                self?.loading(.end)
+            }
+        }
+    }
 }
 
 extension AskHomeViewController: UITableViewDelegate {
@@ -84,7 +139,8 @@ extension AskHomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let section = Section(rawValue: section) else {
-            return MessageType.allCases.count
+//            return MessageType.allCases.count
+            return 0
         }
         
         switch section {
@@ -96,20 +152,23 @@ extension AskHomeViewController: UITableViewDataSource {
             return 3
         case .messageHeader:
             return 1
+        case .message:
+            return self.messages.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = Section(rawValue: indexPath.section) else {
-            guard let row = MessageType(rawValue: indexPath.row) else { return UITableViewCell() }
-            switch row {
-            case .message:
-                let cell = tableView.dequeue(MessageTableViewCell.self, for: indexPath)
-                return cell
-            case .answer:
-                let cell = tableView.dequeue(MessageAnswerTableViewCell.self, for: indexPath)
-                return cell
-            }
+//            guard let row = MessageType(rawValue: indexPath.row) else { return UITableViewCell() }
+//            switch row {
+//            case .message:
+//                let cell = tableView.dequeue(MessageTableViewCell.self, for: indexPath)
+//                return cell
+//            case .answer:
+//                let cell = tableView.dequeue(MessageAnswerTableViewCell.self, for: indexPath)
+//                return cell
+//            }
+            return UITableViewCell()
         }
         switch section {
         case .header:
@@ -122,6 +181,11 @@ extension AskHomeViewController: UITableViewDataSource {
         case .topMessage:
             let cell = tableView.dequeue(TopMessageTableViewCell.self, for: indexPath)
             cell.configure(indexPath.row + 1, text: "text")
+            return cell
+        case .message:
+            let cell = tableView.dequeue(MessageTableViewCell.self, for: indexPath)
+            let index = self.messages.count - indexPath.row - 1
+            cell.configure(self.messages[index])
             return cell
         }
     }

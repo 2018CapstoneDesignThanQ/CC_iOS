@@ -33,4 +33,16 @@ extension UIColor {
     class var textGray: UIColor {
         return #colorLiteral(red: 0.5019607843, green: 0.5019607843, blue: 0.5019607843, alpha: 1)
     }
+    
+    class var textLightGray: UIColor {
+        return #colorLiteral(red: 0.7197155952, green: 0.7297903895, blue: 0.7380803227, alpha: 1)
+    }
+    
+    class var heartRed: UIColor {
+        return #colorLiteral(red: 0.8862745098, green: 0.3843137255, blue: 0.3647058824, alpha: 1)
+    }
+    
+    class var heartGray: UIColor {
+        return #colorLiteral(red: 0.5882352941, green: 0.5921568627, blue: 0.5921568627, alpha: 1)
+    }
 }

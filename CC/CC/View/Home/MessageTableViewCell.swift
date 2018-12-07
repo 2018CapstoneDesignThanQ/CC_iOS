@@ -12,6 +12,10 @@ import Lottie
 class MessageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var messageBackgroundView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var contentsLabel: UILabel!
+    @IBOutlet weak var likeCountLabel: UILabel!
+    
     @IBOutlet weak var lottieFrameView: UIView!
     
     var animationView: LOTAnimationView?
@@ -39,13 +43,23 @@ class MessageTableViewCell: UITableViewCell {
         animationView?.addGestureRecognizer(tap)
     }
     
+    public func configure(_ data: QuestionData) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월 dd일 HH시 mm분"
+        self.dateLabel.text = formatter.string(from: data.regTime)
+        self.contentsLabel.text = data.content
+        self.likeCountLabel.text = "\(data.likeCnt ?? 0)"
+    }
+    
     @objc
     private func setHeartAnimation(_ gesture: UITapGestureRecognizer) {
         if let view = gesture.view as? LOTAnimationView {
             if view.isAnimationPlaying {
                 view.stop()
+                self.likeCountLabel.textColor = .heartGray
             } else {
                 view.play()
+                self.likeCountLabel.textColor = .heartRed
             }
         }
     }
