@@ -16,4 +16,12 @@ extension UIViewController {
         navi.shadowImage = UIImage()
         navi.isTranslucent = true
     }
+    
+    func cancelTranslucentNavigation() {
+        guard let navi = self.navigationController?.navigationBar else { return }
+        navi.tintColor = .white
+        navi.isTranslucent = false
+        
+        navi.barTintColor = .teal
+    }
 }

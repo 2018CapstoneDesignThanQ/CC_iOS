@@ -8,12 +8,13 @@
 
 import Foundation
 import SocketIO
+import SwiftyJSON
 
-class SocketIOManager: NSObject {
-    static let sharedInstance = SocketIOManager()
+class SocketIOManager: NSObject, DecodingService {
+    static let shared = SocketIOManager()
     
-//    var socket: SocketIOClient = SocketIOClient(socketURL: NSURL(string: "http://169.254.76.29:3000")!)
-    var manager: SocketManager = SocketManager(socketURL: URL(string: "http://10.251.0.59:3000")!)
+    var manager: SocketManager = SocketManager(socketURL: URL(string: baseURL)!,
+                                               config: [.log(true)])
     var socket: SocketIOClient?
     
     override init() {
@@ -29,4 +30,17 @@ class SocketIOManager: NSObject {
     public func closeConnection() {
         socket?.disconnect()
     }
+    
+    public func sendRoomID() {
+        socket?.emit("getClassID", "3349")
+    }
+    
+    public func getChatMessage(completion: @escaping (_ messageInfo: JSON) -> Void) {
+        socket?.on("question") { (dataArr, socketAct) in
+            print(dataArr)
+            let data = dataArr[0] as AnyObject
+            completion(JSON(data))
+        }
+    }
+    
 }

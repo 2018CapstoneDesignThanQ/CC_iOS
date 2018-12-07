@@ -1,63 +1,66 @@
 //
-//  HomeViewController.swift
-//  CC
+//  AskViewController.swift
+//  
 //
-//  Created by 이혜진 on 2018. 12. 3..
-//  Copyright © 2018년 LeeHyeJin. All rights reserved.
+//  Created by 이혜진 on 2018. 12. 7..
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class AskViewController: UIViewController {
+
+    @IBOutlet weak var questionTextView: UITextView!
     
-    @IBOutlet weak var codeEnterView: UIView!
-    @IBOutlet weak var codeEnterTextField: UITextField!
+    @IBOutlet weak var sendButtonBottomConstraint: NSLayoutConstraint!
     
     private var keyboardDismissGesture: UITapGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.setupUI()
         
-        self.textFieldInit()
+        self.textViewInit()
         self.keyboardInit()
     }
+
+    @IBAction func dismissAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
-    @IBAction func enterAction(_ sender: Any) {
-        self.enterAction()
+    @IBAction func sendAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func setupUI() {
-        self.setTranslucentNavigation()
+        setTranslucentNavigation()
+//        cancelTranslucentNavigation()
         
-        self.codeEnterView.makeShadow()
+        textViewDidEndEditing(self.questionTextView)
+    }
+}
+
+extension AskViewController: UITextViewDelegate {
+    private func textViewInit() {
+        self.questionTextView.delegate = self
     }
     
-    private func enterAction() {
-        self.codeEnterTextField.resignFirstResponder()
-        
-        if !(self.codeEnterTextField.text?.isEmpty ?? true) {
-            let viewController = storyboard(.home).instantiateViewController(ofType: AskHomeViewController.self)
-            viewController.roomId = self.codeEnterTextField.text
-            self.navigationController?.pushViewController(viewController, animated: true)
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .textLightGray {
+            textView.text = ""
+            textView.textColor = .textGray
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == ""{
+            textView.text = "Type you question"
+            textView.textColor = .textLightGray
+            
         }
     }
 }
 
-extension HomeViewController: UITextFieldDelegate {
-    private func textFieldInit() {
-        self.codeEnterTextField.delegate = self
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.enterAction()
-        return true
-    }
-}
-
-
-extension HomeViewController {
+extension AskViewController {
     private func keyboardInit() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
                                                name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -66,7 +69,7 @@ extension HomeViewController {
     }
     
     @objc func tapBackground(_ sender: UITapGestureRecognizer?) {
-        self.codeEnterTextField.resignFirstResponder()
+        self.questionTextView.resignFirstResponder()
     }
     
     private func adjustKeyboardDismisTapGesture(isKeyboardVisible: Bool) {
@@ -88,6 +91,14 @@ extension HomeViewController {
     @objc func keyboardWillShow(_ notification: Notification) {
         self.adjustKeyboardDismisTapGesture(isKeyboardVisible: true)
         
+//        if self.sendButtonBottomConstraint.constant == 0 {
+//            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//                let keyboardHeight = keyboardSize.height
+//                self.sendButtonBottomConstraint.constant = -(keyboardHeight)
+//                view.layoutIfNeeded()
+//            }
+//        }
+        
         if self.view.frame.origin.y == 0 {
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 let keyboardHeight = keyboardSize.height
@@ -101,6 +112,11 @@ extension HomeViewController {
     @objc func keyboardWillHide(_ notification: Notification) {
         self.adjustKeyboardDismisTapGesture(isKeyboardVisible: false)
         
+//        if self.sendButtonBottomConstraint.constant != 0 {
+//            self.sendButtonBottomConstraint.constant = 0
+//            view.layoutIfNeeded()
+//        }
+        
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
             view.layoutIfNeeded()
@@ -108,3 +124,4 @@ extension HomeViewController {
     }
     
 }
+
