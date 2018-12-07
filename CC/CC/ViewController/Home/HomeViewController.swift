@@ -35,10 +35,11 @@ class HomeViewController: UIViewController {
     }
     
     private func enterAction() {
+        self.codeEnterTextField.resignFirstResponder()
+        
         if !(self.codeEnterTextField.text?.isEmpty ?? true) {
             let viewController = storyboard(.home).instantiateViewController(ofType: AskHomeViewController.self)
             viewController.roomId = self.codeEnterTextField.text
-            self.navigationController?.setViewControllers([viewController], animated: true)
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

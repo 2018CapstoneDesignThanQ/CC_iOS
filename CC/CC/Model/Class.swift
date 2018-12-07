@@ -35,6 +35,7 @@ struct QuestionData: Codable {
     let content: String
     let regTime: Date
     let likeCnt: Int?
+    let isLike: Int
     
     enum CodingKeys: String, CodingKey {
         case nickname
@@ -44,5 +45,6 @@ struct QuestionData: Codable {
         case content
         case regTime = "reg_time"
         case likeCnt = "like_cnt"
+        case isLike = "is_like"
     }
 }

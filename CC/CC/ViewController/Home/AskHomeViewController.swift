@@ -75,7 +75,7 @@ class AskHomeViewController: UIViewController {
                                            classFk: Int(self?.roomId ?? ""),
                                            content: result["content"].string ?? "",
                                            regTime: formatter.date(from: result["time"].string ?? "") ?? Date(),
-                                           likeCnt: 0)
+                                           likeCnt: 0, isLike: 0)
                 self?.messages.append(message)
                 self?.messagesTableView.reloadData()
             }
@@ -84,16 +84,26 @@ class AskHomeViewController: UIViewController {
     
     private func getClassNetwork() {
         ClassService.shared.getClass(roomId: self.roomId ?? "") { [weak self] (result) in
+            guard let `self` = self else { return }
             switch result {
             case .success(let data):
-                self?.classData = data.classData
-                self?.navigationItem.title = data.classData.title
-                self?.messages = data.questionData
-                self?.messagesTableView.reloadData()
-                self?.loading(.end)
+                self.classData = data.classData
+                self.navigationItem.title = data.classData.title
+                self.messages = data.questionData
+                self.messagesTableView.reloadData()
+                self.navigationController?.setViewControllers([self], animated: true)
+                self.loading(.end)
             case .error(let err):
-                self?.errorAction(error: err, confirmAction: nil)
-                self?.loading(.end)
+                self.errorAction(error: err, confirmAction: nil) { [weak self] (message) in
+                    if message == "This Class  Does Not Exist" {
+                        self?.addAlert(title: "",
+                                      message: "코드가 유효하지 않습니다.",
+                                      actions: [UIAlertAction(title: "확인", style: .default, handler: { (_) in
+                                        self?.navigationController?.popViewController(animated: true)
+                                      })], completion: nil)
+                    }
+                }
+                self.loading(.end)
             }
         }
     }

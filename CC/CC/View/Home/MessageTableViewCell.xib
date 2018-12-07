@@ -43,7 +43,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORc-8Z-ZLI">
-                                <rect key="frame" x="317" y="20" width="20" height="17"/>
+                                <rect key="frame" x="317" y="19" width="20" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="TaJ-4m-cE3"/>
                                 </constraints>
@@ -55,7 +55,7 @@
                         <color key="backgroundColor" red="0.25882352941176473" green="0.50196078431372548" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Qgp-sJ-96x" firstAttribute="centerY" secondItem="ayY-gf-oBA" secondAttribute="centerY" constant="-16" id="4b4-oc-SrK"/>
-                            <constraint firstItem="ORc-8Z-ZLI" firstAttribute="top" secondItem="Ol8-HC-LFQ" secondAttribute="top" constant="20" id="Aix-7e-G2K"/>
+                            <constraint firstItem="ORc-8Z-ZLI" firstAttribute="top" secondItem="Ol8-HC-LFQ" secondAttribute="top" constant="19" id="Aix-7e-G2K"/>
                             <constraint firstAttribute="bottom" secondItem="ayY-gf-oBA" secondAttribute="bottom" constant="14" id="Cjy-48-IHm"/>
                             <constraint firstItem="Qgp-sJ-96x" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ayY-gf-oBA" secondAttribute="trailing" constant="15" id="D3p-uT-dlb"/>
                             <constraint firstItem="ORc-8Z-ZLI" firstAttribute="leading" secondItem="Qgp-sJ-96x" secondAttribute="trailing" id="NVx-PB-LAf"/>

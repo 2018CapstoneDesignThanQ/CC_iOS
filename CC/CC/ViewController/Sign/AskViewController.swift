@@ -33,7 +33,8 @@ class AskViewController: UIViewController {
     }
     
     private func setupUI() {
-        self.cancelTranslucentNavigation()
+        setTranslucentNavigation()
+//        cancelTranslucentNavigation()
         
         textViewDidEndEditing(self.questionTextView)
     }
@@ -90,10 +91,19 @@ extension AskViewController {
     @objc func keyboardWillShow(_ notification: Notification) {
         self.adjustKeyboardDismisTapGesture(isKeyboardVisible: true)
         
-        if self.sendButtonBottomConstraint.constant == 0 {
+//        if self.sendButtonBottomConstraint.constant == 0 {
+//            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//                let keyboardHeight = keyboardSize.height
+//                self.sendButtonBottomConstraint.constant = -(keyboardHeight)
+//                view.layoutIfNeeded()
+//            }
+//        }
+        
+        if self.view.frame.origin.y == 0 {
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 let keyboardHeight = keyboardSize.height
-                self.sendButtonBottomConstraint.constant = -(keyboardHeight)
+                let centerY = (self.view.frame.height - keyboardHeight)/2
+                self.view.center.y = centerY
                 view.layoutIfNeeded()
             }
         }
@@ -102,8 +112,13 @@ extension AskViewController {
     @objc func keyboardWillHide(_ notification: Notification) {
         self.adjustKeyboardDismisTapGesture(isKeyboardVisible: false)
         
-        if self.sendButtonBottomConstraint.constant != 0 {
-            self.sendButtonBottomConstraint.constant = 0
+//        if self.sendButtonBottomConstraint.constant != 0 {
+//            self.sendButtonBottomConstraint.constant = 0
+//            view.layoutIfNeeded()
+//        }
+        
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
             view.layoutIfNeeded()
         }
     }
