@@ -17,6 +17,9 @@ class TopMessageTableViewCell: UITableViewCell {
     @IBOutlet weak var indexLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     
+    private var animationView: LOTAnimationView?
+    private var isLike: Bool = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -29,30 +32,40 @@ class TopMessageTableViewCell: UITableViewCell {
     }
     
     private func setupUI() {
-        let animationView = LOTAnimationView(name: "like")
-        animationView.frame = self.lottieFrameView.frame
-        animationView.contentMode = .scaleAspectFill
-        animationView.animationSpeed = 0.6
+        animationView = LOTAnimationView(name: "like")
+        animationView?.frame = self.lottieFrameView.frame
+        animationView?.contentMode = .scaleAspectFill
+        animationView?.animationSpeed = 0.6
         
-        self.messageBackgroundView.addSubview(animationView)
+        self.messageBackgroundView.addSubview(self.animationView ?? LOTAnimationView())
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(setHeartAnimation(_:)))
-        animationView.addGestureRecognizer(tap)
+        animationView?.addGestureRecognizer(tap)
     }
     
-    public func configure(_ index: Int, text: String) {
+    public func configure(_ index: Int, data: QuestionData) {
         self.indexLabel.text = "\(index)"
-        self.messageLabel.text = text
+        
+        self.messageLabel.text = data.content
+        self.isLike = data.isLike != 0
+        self.heartInit(self.isLike)
+    }
+    
+    public func setSearchText(_ text: String) {
+        self.messageLabel.setLabelMultiColor(.teal, size: 14.0, change: text)
+    }
+    
+    private func heartInit(_ isLike: Bool) {
+        if isLike {
+            self.animationView?.play()
+        } else {
+            self.animationView?.stop()
+        }
     }
     
     @objc
     private func setHeartAnimation(_ gesture: UITapGestureRecognizer) {
-        if let view = gesture.view as? LOTAnimationView {
-            if view.isAnimationPlaying {
-                view.stop()
-            } else {
-                view.play()
-            }
-        }
+        self.isLike = !self.isLike
+        self.heartInit(self.isLike)
     }
 }

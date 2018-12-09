@@ -14,10 +14,20 @@ class AskHomeViewController: UIViewController {
     
     @IBOutlet var askMyThoughtView: UIView!
     
-    var roomId: String?
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet var searchBarTopConstraint: NSLayoutConstraint!
     
-    var classData: ClassData?
-    var messages: [QuestionData] = []
+    public var roomId: String?
+    private var preRoomId: String?
+    
+    private var classData: ClassData?
+    private var topMessages: [QuestionData] = []
+    private var messages: [QuestionData] = []
+    
+    private var topMessagesForShow: [QuestionData] = []
+    private var messagesForShow: [QuestionData] = []
+    private var searchText: String?
+    private var keyboardDismissGesture: UITapGestureRecognizer?
     
     enum Section: Int, CaseIterable {
         case header
@@ -33,7 +43,7 @@ class AskHomeViewController: UIViewController {
     }
     
     struct Const {
-        static let headerHeight: CGFloat = 90.0
+        static let headerHeight: CGFloat = 85.0
         
         static let navi: String = "goAskQuestionNavi"
     }
@@ -41,6 +51,7 @@ class AskHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.searchBarInit()
         self.tableViewInit()
         self.setupData()
     }
@@ -52,21 +63,77 @@ class AskHomeViewController: UIViewController {
     }
     
     @IBAction func goShareMyThoughtAction(_ sender: Any) {
-        if let naviController = storyboard(.home).instantiateViewController(withIdentifier: Const.navi) as? UINavigationController {
-            self.present(naviController, animated: true, completion: nil)
+        let viewController = storyboard(.home).instantiateViewController(ofType: AskViewController.self)
+        viewController.roomId = self.roomId
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func showClassListAction(_ sender: Any) {
+        let viewController = storyboard(.home).instantiateViewController(ofType: ClassListViewController.self)
+        viewController.delegate = self
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func pressedSearchButtonAction(_ sender: Any) {
+        UIView.animate(withDuration: 0.4) { [weak self] in
+            guard let active = self?.searchBarTopConstraint.isActive else { return }
+            self?.searchBarTopConstraint.isActive = !active
+            
+            self?.searchBar.text = ""
+            self?.searchBar(self?.searchBar ?? UISearchBar(), textDidChange: "")
+            self?.searchBar.resignFirstResponder()
+            
+            self?.view.layoutIfNeeded()
         }
     }
     
     private func setupUI() {
         self.setTranslucentNavigation()
+        
+        self.searchBar.backgroundImage = UIImage()
+        self.searchBarTopConstraint.isActive = false
     }
     
     private func setupData() {
         loading(.start)
         self.getClassNetwork()
-        SocketIOManager.shared.sendRoomID()
+    }
+    
+    private func getClassNetwork() {
+        ClassService.shared.getClass(roomId: self.roomId ?? "") { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let data):
+                try? ClassService.shared.saveRoomId(self.roomId ?? "")
+                
+                self.classData = data.classData
+                self.navigationItem.title = data.classData.title
+                self.topMessages = data.topQuestion
+                self.messages = data.questionData
+                
+                self.topMessagesForShow = self.topMessages
+                self.messagesForShow = self.messages
+                
+                self.messagesTableView.reloadData()
+                
+                self.navigationController?.setViewControllers([self], animated: true)
+                
+                self.setClassSocket()
+                self.loading(.end)
+            case .error(let err):
+                self.errorAction(error: err, confirmAction: nil) { [weak self] (message) in
+                    self?.getClassMessageAction(message)
+                }
+                self.loading(.end)
+            }
+        }
+    }
+    
+    private func setClassSocket() {
+        SocketIOManager.shared.sendRoomID(self.roomId ?? "")
         SocketIOManager.shared.getChatMessage() { [weak self] result in
             DispatchQueue.main.async {
+                print(result)
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
                 let message = QuestionData(nickname: result["nickname"].string ?? "",
@@ -77,36 +144,94 @@ class AskHomeViewController: UIViewController {
                                            regTime: formatter.date(from: result["time"].string ?? "") ?? Date(),
                                            likeCnt: 0, isLike: 0)
                 self?.messages.append(message)
-                self?.messagesTableView.reloadData()
+                self?.messagesForShow.append(message)
+//                self?.messagesTableView.reloadData()
+                self?.messagesTableView.reloadSections(IndexSet(integer: Section.message.rawValue),
+                                                       with: .automatic)
             }
         }
     }
     
-    private func getClassNetwork() {
-        ClassService.shared.getClass(roomId: self.roomId ?? "") { [weak self] (result) in
-            guard let `self` = self else { return }
-            switch result {
-            case .success(let data):
-                self.classData = data.classData
-                self.navigationItem.title = data.classData.title
-                self.messages = data.questionData
-                self.messagesTableView.reloadData()
-                self.navigationController?.setViewControllers([self], animated: true)
-                self.loading(.end)
-            case .error(let err):
-                self.errorAction(error: err, confirmAction: nil) { [weak self] (message) in
-                    if message == "This Class  Does Not Exist" {
-                        self?.addAlert(title: "",
-                                      message: "코드가 유효하지 않습니다.",
-                                      actions: [UIAlertAction(title: "확인", style: .default, handler: { (_) in
-                                        self?.navigationController?.popViewController(animated: true)
-                                      })], completion: nil)
-                    }
+    private func getClassMessageAction(_ message: String) {
+        if message == "This Class  Does Not Exist" {
+            self.addAlert(title: "",
+                           message: "코드가 유효하지 않습니다.",
+                           actions: [UIAlertAction(title: "확인", style: .default, handler: { (_) in
+                            self.navigationController?.popViewController(animated: true)
+                            self.roomId = self.preRoomId
+                           })], completion: nil)
+        }
+    }
+}
+
+extension AskHomeViewController: SendDataViewControllerDelegate {
+    func sendData<T>(_ key: String, datatype: T.Type, _ data: T) {
+        if key == SendDataKey.selectedClassId {
+            guard let data = data as? String else { return }
+            self.preRoomId = self.roomId
+            self.roomId = data
+            self.setupData()
+        }
+    }
+}
+
+extension AskHomeViewController: UISearchBarDelegate {
+    private func searchBarInit() {
+        self.searchBar.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
+        guard let text = self.searchText else { return }
+        
+        if text != "" {
+            let resultTopMessage = self.topMessages.filter { $0.content.range(of: text) != nil }
+            self.topMessagesForShow = resultTopMessage
+            
+            let resultMessage = self.messages.filter { $0.content.range(of: text) != nil }
+            self.messagesForShow = resultMessage
+        } else {
+            self.topMessagesForShow = self.topMessages
+            self.messagesForShow = self.messages
+        }
+        
+//        self.messagesTableView.reloadSections(IndexSet([Section.topMessage.rawValue, Section.message.rawValue]), with: .automatic)
+        self.messagesTableView.reloadData()
+    }
+    
+    @objc func tapBackground(_ sender: UITapGestureRecognizer?) {
+        self.searchBar.resignFirstResponder()
+    }
+    
+    private func adjustKeyboardDismisTapGesture(isKeyboardVisible: Bool) {
+        if isKeyboardVisible {
+            if self.keyboardDismissGesture == nil {
+                self.keyboardDismissGesture = UITapGestureRecognizer(target: self, action: #selector(tapBackground(_:)))
+                if let gesture = self.keyboardDismissGesture {
+                    self.view.addGestureRecognizer(gesture)
                 }
-                self.loading(.end)
+            }
+        } else {
+            if let gesture = self.keyboardDismissGesture {
+                self.view.removeGestureRecognizer(gesture)
+                self.keyboardDismissGesture = nil
             }
         }
     }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        self.adjustKeyboardDismisTapGesture(isKeyboardVisible: true)
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        self.adjustKeyboardDismisTapGesture(isKeyboardVisible: false)
+    }
+    
 }
 
 extension AskHomeViewController: UITableViewDelegate {
@@ -140,11 +265,16 @@ extension AskHomeViewController: UITableViewDelegate {
             return 0
         }
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        scrollView.contentOffset.y = offsetY > 0 ? offsetY : 0
+    }
 }
 
 extension AskHomeViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Section.allCases.count + self.messages.count
+        return Section.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -159,11 +289,11 @@ extension AskHomeViewController: UITableViewDataSource {
         case .topMessageHeader:
             return 1
         case .topMessage:
-            return 3
+            return self.topMessagesForShow.count
         case .messageHeader:
             return 1
         case .message:
-            return self.messages.count
+            return self.messagesForShow.count
         }
     }
     
@@ -190,12 +320,14 @@ extension AskHomeViewController: UITableViewDataSource {
             return cell
         case .topMessage:
             let cell = tableView.dequeue(TopMessageTableViewCell.self, for: indexPath)
-            cell.configure(indexPath.row + 1, text: "text")
+            cell.configure(indexPath.row + 1, data: self.topMessagesForShow[indexPath.row])
+            cell.setSearchText(self.searchText ?? "")
             return cell
         case .message:
             let cell = tableView.dequeue(MessageTableViewCell.self, for: indexPath)
-            let index = self.messages.count - indexPath.row - 1
-            cell.configure(self.messages[index])
+            let index = self.messagesForShow.count - indexPath.row - 1
+            cell.configure(self.messagesForShow[index])
+            cell.setSearchText(self.searchText ?? "")
             return cell
         }
     }

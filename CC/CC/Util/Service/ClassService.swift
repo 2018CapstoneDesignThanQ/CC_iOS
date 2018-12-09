@@ -7,9 +7,33 @@
 //
 
 import Foundation
+import SwiftyJSON
+import KeychainAccess
 
-struct ClassService: APIService, DecodingService {
+class ClassService: APIService, DecodingService {
     static let shared = ClassService()
+    
+    var lastRoomId: String?
+    private let keychain = Keychain(service: "com.hyejin.tlend")
+    
+    init() {
+        self.lastRoomId = self.loadRoomId()
+    }
+    
+    private func loadRoomId() -> String? {
+        guard let roomId = self.keychain["roomID"] else { return nil }
+        return roomId
+    }
+    
+    public func saveRoomId(_ roomId: String) throws {
+        try self.keychain.set(roomId, key: "roomID")
+        self.lastRoomId = self.loadRoomId()
+    }
+    
+    public func removeRoomId() throws {
+        try self.keychain.remove("token")
+        self.lastRoomId = nil
+    }
     
     public func getClass(roomId: String, completion: @escaping (Result<Class>) -> Void) {
         NetworkService.shared.request(url("class/room/\(roomId)")) { (result) in
@@ -18,6 +42,20 @@ struct ClassService: APIService, DecodingService {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
                 completion(self.decodeJSONData(Class.self, dateFormatter: formatter, data: data))
+            case .error(let err):
+                completion(.error(err))
+            }
+        }
+    }
+    
+    public func sendMessageAtClass(roomId: String, content: String, completion: @escaping (Result<String>) -> Void) {
+        let params = [
+            "content" : content
+        ]
+        NetworkService.shared.request(url("class/room/\(roomId)/question"), method: .post, parameters: params) { (result) in
+            switch result {
+            case .success(let data):
+                completion(.success(JSON(data).string ?? ""))
             case .error(let err):
                 completion(.error(err))
             }

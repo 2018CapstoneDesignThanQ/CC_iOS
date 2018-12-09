@@ -71,6 +71,14 @@ class LoginHomeViewController: UIViewController {
         if message == "Success To Sign Up" {
             let tabBarController = self.storyboard(.main).instantiateViewController(ofType: RAMAnimatedTabBarController.self)
             tabBarController.setSelectIndex(from: 0, to: 1)
+            
+            if ClassService.shared.lastRoomId != nil {
+                guard let naviController = tabBarController.viewControllers?[1] as? UINavigationController else { return }
+                let viewController = storyboard(.home).instantiateViewController(ofType: AskHomeViewController.self)
+                viewController.roomId = ClassService.shared.lastRoomId
+                naviController.setViewControllers([viewController], animated: true)
+            }
+            
             self.present(tabBarController, animated: true, completion: nil)
             
         } else if message == "Fail To Sign In" {

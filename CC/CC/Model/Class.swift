@@ -11,7 +11,13 @@ import Foundation
 struct Class: Codable {
     let message: String
     let classData: ClassData
+    let topQuestion: [QuestionData]
     let questionData: [QuestionData]
+    
+    enum CodingKeys: String, CodingKey {
+        case message, classData
+        case topQuestion, questionData
+    }
 }
 
 struct ClassData: Codable {
