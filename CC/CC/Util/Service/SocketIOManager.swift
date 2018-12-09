@@ -31,8 +31,8 @@ class SocketIOManager: NSObject, DecodingService {
         socket?.disconnect()
     }
     
-    public func sendRoomID() {
-        socket?.emit("getClassID", "3349")
+    public func sendRoomID(_ roomId: String) {
+        socket?.emit("getClassID", roomId)
     }
     
     public func getChatMessage(completion: @escaping (_ messageInfo: JSON) -> Void) {

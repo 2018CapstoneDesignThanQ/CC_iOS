@@ -18,8 +18,8 @@ class MessageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lottieFrameView: UIView!
     
-    var animationView: LOTAnimationView?
-    var isLike: Bool = false
+    private var animationView: LOTAnimationView?
+    private var isLike: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,6 +53,10 @@ class MessageTableViewCell: UITableViewCell {
         
         self.isLike = data.isLike != 0
         self.heartInit(self.isLike)
+    }
+    
+    public func setSearchText(_ text: String) {
+        self.contentsLabel.setLabelMultiColor(.pointYellow, size: 12.0, change: text)
     }
     
     private func heartInit(_ isLike: Bool) {

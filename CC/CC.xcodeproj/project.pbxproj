@@ -38,6 +38,11 @@
 		491555A721BA446B00453356 /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491555A621BA446B00453356 /* AskViewController.swift */; };
 		491555A921BA67D000453356 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491555A821BA67D000453356 /* Class.swift */; };
 		491555AB21BA682F00453356 /* ClassService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491555AA21BA682F00453356 /* ClassService.swift */; };
+		4919558C21BAE876003A3B7A /* ClassListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919558B21BAE876003A3B7A /* ClassListViewController.swift */; };
+		4919559221BAEBF4003A3B7A /* check_pop.json in Resources */ = {isa = PBXBuildFile; fileRef = 4919559121BAEBF4003A3B7A /* check_pop.json */; };
+		4963C96A21BC2B6600DEDD24 /* lottie_test_f.json in Resources */ = {isa = PBXBuildFile; fileRef = 4963C96821BC2B6600DEDD24 /* lottie_test_f.json */; };
+		4963C96B21BC2B6600DEDD24 /* lottie_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 4963C96921BC2B6600DEDD24 /* lottie_test.json */; };
+		4963C96D21BCAEC000DEDD24 /* SendDataViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4963C96C21BCAEC000DEDD24 /* SendDataViewControllerDelegate.swift */; };
 		4976661A21B4621F00AB98FB /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661921B4621F00AB98FB /* Sign.storyboard */; };
 		4976661C21B4622400AB98FB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661B21B4622400AB98FB /* Home.storyboard */; };
 		4976661E21B4623B00AB98FB /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976661D21B4623B00AB98FB /* Notification.storyboard */; };
@@ -57,6 +62,8 @@
 		499656A021AEFFA600576437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4996569E21AEFFA600576437 /* Main.storyboard */; };
 		499656A221AEFFA600576437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 499656A121AEFFA600576437 /* Assets.xcassets */; };
 		499656A521AEFFA600576437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499656A321AEFFA600576437 /* LaunchScreen.storyboard */; };
+		49C87BA321BB998200ED180E /* ClassListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C87BA221BB998200ED180E /* ClassListTableViewCell.xib */; };
+		49C87BA521BB9A6600ED180E /* ClassListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C87BA421BB9A6600ED180E /* ClassListTableViewCell.swift */; };
 		E168B41D0C6D04C813A70A38 /* Pods_CC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83EF0E64CA951A7BD0149E4 /* Pods_CC.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +99,11 @@
 		491555A621BA446B00453356 /* AskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AskViewController.swift; path = /Users/ihyejin/Documents/CC/CC/CC/ViewController/Sign/AskViewController.swift; sourceTree = "<absolute>"; };
 		491555A821BA67D000453356 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		491555AA21BA682F00453356 /* ClassService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassService.swift; sourceTree = "<group>"; };
+		4919558B21BAE876003A3B7A /* ClassListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassListViewController.swift; sourceTree = "<group>"; };
+		4919559121BAEBF4003A3B7A /* check_pop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = check_pop.json; sourceTree = "<group>"; };
+		4963C96821BC2B6600DEDD24 /* lottie_test_f.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_test_f.json; sourceTree = "<group>"; };
+		4963C96921BC2B6600DEDD24 /* lottie_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_test.json; sourceTree = "<group>"; };
+		4963C96C21BCAEC000DEDD24 /* SendDataViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDataViewControllerDelegate.swift; sourceTree = "<group>"; };
 		4976661921B4621F00AB98FB /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		4976661B21B4622400AB98FB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		4976661D21B4623B00AB98FB /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
@@ -113,6 +125,8 @@
 		499656A121AEFFA600576437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		499656A421AEFFA600576437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		499656A621AEFFA600576437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49C87BA221BB998200ED180E /* ClassListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassListTableViewCell.xib; sourceTree = "<group>"; };
+		49C87BA421BB9A6600ED180E /* ClassListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassListTableViewCell.swift; sourceTree = "<group>"; };
 		D3B58D3E3B3938E3B3E72A2C /* Pods-CC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CC/Pods-CC.debug.xcconfig"; sourceTree = "<group>"; };
 		E83EF0E64CA951A7BD0149E4 /* Pods_CC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F392C98A89DF1FD44DC790F4 /* Pods-CC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CC.release.xcconfig"; path = "Pods/Target Support Files/Pods-CC/Pods-CC.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +155,8 @@
 				4915556721B6CA0500453356 /* MessageTableViewCell.xib */,
 				4915556A21B6CA3B00453356 /* MessageAnswerTableViewCell.swift */,
 				4915556B21B6CA3B00453356 /* MessageAnswerTableViewCell.xib */,
+				49C87BA421BB9A6600ED180E /* ClassListTableViewCell.swift */,
+				49C87BA221BB998200ED180E /* ClassListTableViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -148,6 +164,9 @@
 		4915557521B7783F00453356 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				4963C96821BC2B6600DEDD24 /* lottie_test_f.json */,
+				4963C96921BC2B6600DEDD24 /* lottie_test.json */,
+				4919559121BAEBF4003A3B7A /* check_pop.json */,
 				4915557E21B787AC00453356 /* like.json */,
 				4915557C21B7876A00453356 /* favorite.json */,
 				4915557A21B7866A00453356 /* twitter_heart.json */,
@@ -180,6 +199,7 @@
 				4976663121B52F3600AB98FB /* HomeViewController.swift */,
 				4915555B21B6C41C00453356 /* AskHomeViewController.swift */,
 				491555A621BA446B00453356 /* AskViewController.swift */,
+				4919558B21BAE876003A3B7A /* ClassListViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -297,6 +317,7 @@
 		499656B221AEFFF200576437 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				4963C96C21BCAEC000DEDD24 /* SendDataViewControllerDelegate.swift */,
 				491555A021B8CA4C00453356 /* SocketIOManager.swift */,
 				4915558021B7A89400453356 /* APIService.swift */,
 				4915558421B7A96A00453356 /* AuthService.swift */,
@@ -399,10 +420,13 @@
 				4915557721B77C2200453356 /* pop_heart.json in Resources */,
 				499656A521AEFFA600576437 /* LaunchScreen.storyboard in Resources */,
 				4915556D21B6CA3B00453356 /* MessageAnswerTableViewCell.xib in Resources */,
+				4963C96B21BC2B6600DEDD24 /* lottie_test.json in Resources */,
 				4976661C21B4622400AB98FB /* Home.storyboard in Resources */,
+				4963C96A21BC2B6600DEDD24 /* lottie_test_f.json in Resources */,
 				499656A221AEFFA600576437 /* Assets.xcassets in Resources */,
 				4915557F21B787AC00453356 /* like.json in Resources */,
 				499656A021AEFFA600576437 /* Main.storyboard in Resources */,
+				49C87BA321BB998200ED180E /* ClassListTableViewCell.xib in Resources */,
 				4915559B21B7F64A00453356 /* loading.json in Resources */,
 				4915556921B6CA0500453356 /* MessageTableViewCell.xib in Resources */,
 				4976662021B4624200AB98FB /* MyPage.storyboard in Resources */,
@@ -412,6 +436,7 @@
 				4976661E21B4623B00AB98FB /* Notification.storyboard in Resources */,
 				4915556521B6C9F700453356 /* TopMessageTableViewCell.xib in Resources */,
 				4915557D21B7876A00453356 /* favorite.json in Resources */,
+				4919559221BAEBF4003A3B7A /* check_pop.json in Resources */,
 				4915557121B6CA7000453356 /* MessageHeaderTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +514,7 @@
 				4915558721B7A98A00453356 /* DecodingService.swift in Sources */,
 				4976663C21B5738700AB98FB /* UILabel+Color.swift in Sources */,
 				4915558D21B7AF5B00453356 /* SignService.swift in Sources */,
+				4963C96D21BCAEC000DEDD24 /* SendDataViewControllerDelegate.swift in Sources */,
 				4976662421B5272700AB98FB /* UIStoryboard+CC.swift in Sources */,
 				4976662621B5275000AB98FB /* UIView+Shadow.swift in Sources */,
 				4915559721B7F3B900453356 /* UIViewController+Loading.swift in Sources */,
@@ -502,9 +528,11 @@
 				4915557021B6CA7000453356 /* MessageHeaderTableViewCell.swift in Sources */,
 				4976663221B52F3600AB98FB /* HomeViewController.swift in Sources */,
 				4915556821B6CA0500453356 /* MessageTableViewCell.swift in Sources */,
+				49C87BA521BB9A6600ED180E /* ClassListTableViewCell.swift in Sources */,
 				491555A721BA446B00453356 /* AskViewController.swift in Sources */,
 				4915558921B7AB1100453356 /* NetworkService.swift in Sources */,
 				491555AB21BA682F00453356 /* ClassService.swift in Sources */,
+				4919558C21BAE876003A3B7A /* ClassListViewController.swift in Sources */,
 				4915558F21B7B3A900453356 /* UIViewController+Alert.swift in Sources */,
 				4996569B21AEFFA600576437 /* AppDelegate.swift in Sources */,
 				4976662C21B52EEF00AB98FB /* NotificationMainViewController.swift in Sources */,
