@@ -12,15 +12,20 @@ class ClassListViewController: UIViewController {
 
     @IBOutlet weak var classListTableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var codeEnterTextField: UITextField!
     
     public var roomId: String?
     private var myClasses: [ClassData] = []
+    
+    private var keyboardDismissGesture: UITapGestureRecognizer?
     
     public weak var delegate: SendDataViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableViewInit()
+        self.keyboardInit()
         
         self.setupData()
     }
@@ -30,6 +35,11 @@ class ClassListViewController: UIViewController {
     }
     
     @IBAction func addClassAction(_ sender: Any) {
+        if !(self.codeEnterTextField.text?.isEmpty ?? true) {
+            self.dismiss(animated: true, completion: nil)
+            delegate?.sendData(SendDataKey.selectedClassId,
+                               datatype: String.self, self.codeEnterTextField.text ?? "")
+        }
     }
     
     private func setupData() {
@@ -86,4 +96,56 @@ extension ClassListViewController: UITableViewDataSource {
         cell.delegate = self
         return cell
     }
+}
+
+extension ClassListViewController {
+    private func keyboardInit() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func tapBackground(_ sender: UITapGestureRecognizer?) {
+        self.codeEnterTextField.resignFirstResponder()
+    }
+    
+    private func adjustKeyboardDismisTapGesture(isKeyboardVisible: Bool) {
+        if isKeyboardVisible {
+            if self.keyboardDismissGesture == nil {
+                self.keyboardDismissGesture = UITapGestureRecognizer(target: self, action: #selector(tapBackground(_:)))
+                if let gesture = self.keyboardDismissGesture {
+                    self.view.addGestureRecognizer(gesture)
+                }
+            }
+        } else {
+            if let gesture = self.keyboardDismissGesture {
+                self.view.removeGestureRecognizer(gesture)
+                self.keyboardDismissGesture = nil
+            }
+        }
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        self.adjustKeyboardDismisTapGesture(isKeyboardVisible: true)
+        
+        if self.view.frame.origin.y == 0 {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                let keyboardHeight = keyboardSize.height
+                let centerY = (self.view.frame.height - keyboardHeight)/2
+                self.view.center.y = centerY
+                view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        self.adjustKeyboardDismisTapGesture(isKeyboardVisible: false)
+        
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+            view.layoutIfNeeded()
+        }
+    }
+    
 }
