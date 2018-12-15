@@ -18,8 +18,12 @@ class MessageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lottieFrameView: UIView!
     
+    public var index: Int?
+    
     private var animationView: LOTAnimationView?
     private var isLike: Bool = false
+    
+    public weak var delegate: SendDataViewControllerDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -61,6 +65,7 @@ class MessageTableViewCell: UITableViewCell {
     
     private func heartInit(_ isLike: Bool) {
         if isLike {
+//            self.animationView?.animationProgress = 1.0
             self.animationView?.play()
             self.likeCountLabel.textColor = .heartRed
         } else {
@@ -71,16 +76,18 @@ class MessageTableViewCell: UITableViewCell {
     
     @objc
     private func setHeartAnimation(_ gesture: UITapGestureRecognizer) {
-//        if let view = gesture.view as? LOTAnimationView {
-//            if self.isLike {
-//                view.stop()
-//                self.likeCountLabel.textColor = .heartGray
-//            } else {
-//                view.play()
-//                self.likeCountLabel.textColor = .heartRed
-//            }
-            self.isLike = !self.isLike
-            self.heartInit(self.isLike)
-//        }
+        self.isLike = !self.isLike
+        
+        if self.isLike {
+            self.animationView?.play()
+            self.likeCountLabel.textColor = .heartRed
+            delegate?.sendData(SendDataKey.selectLike,
+                               datatype: Int.self, self.index ?? 0)
+        } else {
+            self.animationView?.stop()
+            self.likeCountLabel.textColor = .heartGray
+            delegate?.sendData(SendDataKey.selectDislike,
+                               datatype: Int.self, self.index ?? 0)
+        }
     }
 }

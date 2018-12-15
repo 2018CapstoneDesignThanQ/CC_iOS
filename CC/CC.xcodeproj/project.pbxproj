@@ -64,6 +64,8 @@
 		499656A521AEFFA600576437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499656A321AEFFA600576437 /* LaunchScreen.storyboard */; };
 		49C87BA321BB998200ED180E /* ClassListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C87BA221BB998200ED180E /* ClassListTableViewCell.xib */; };
 		49C87BA521BB9A6600ED180E /* ClassListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C87BA421BB9A6600ED180E /* ClassListTableViewCell.swift */; };
+		49F445A821C3F1D100904CBC /* Heart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F445A721C3F1D100904CBC /* Heart.swift */; };
+		49F445AA21C4C77200904CBC /* MyClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F445A921C4C77200904CBC /* MyClass.swift */; };
 		E168B41D0C6D04C813A70A38 /* Pods_CC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83EF0E64CA951A7BD0149E4 /* Pods_CC.framework */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +129,8 @@
 		499656A621AEFFA600576437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49C87BA221BB998200ED180E /* ClassListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassListTableViewCell.xib; sourceTree = "<group>"; };
 		49C87BA421BB9A6600ED180E /* ClassListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassListTableViewCell.swift; sourceTree = "<group>"; };
+		49F445A721C3F1D100904CBC /* Heart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heart.swift; sourceTree = "<group>"; };
+		49F445A921C4C77200904CBC /* MyClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClass.swift; sourceTree = "<group>"; };
 		D3B58D3E3B3938E3B3E72A2C /* Pods-CC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CC/Pods-CC.debug.xcconfig"; sourceTree = "<group>"; };
 		E83EF0E64CA951A7BD0149E4 /* Pods_CC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F392C98A89DF1FD44DC790F4 /* Pods-CC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CC.release.xcconfig"; path = "Pods/Target Support Files/Pods-CC/Pods-CC.release.xcconfig"; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 			children = (
 				491555A221BA239B00453356 /* User.swift */,
 				491555A821BA67D000453356 /* Class.swift */,
+				49F445A721C3F1D100904CBC /* Heart.swift */,
+				49F445A921C4C77200904CBC /* MyClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -523,10 +529,12 @@
 				4915558521B7A96A00453356 /* AuthService.swift in Sources */,
 				4915559121B7BB3B00453356 /* UIViewController+NetworkError.swift in Sources */,
 				4915556C21B6CA3B00453356 /* MessageAnswerTableViewCell.swift in Sources */,
+				49F445AA21C4C77200904CBC /* MyClass.swift in Sources */,
 				4915559321B7F17100453356 /* LoadingView.swift in Sources */,
 				4976663621B56B2D00AB98FB /* SignUpViewController.swift in Sources */,
 				4915557021B6CA7000453356 /* MessageHeaderTableViewCell.swift in Sources */,
 				4976663221B52F3600AB98FB /* HomeViewController.swift in Sources */,
+				49F445A821C3F1D100904CBC /* Heart.swift in Sources */,
 				4915556821B6CA0500453356 /* MessageTableViewCell.swift in Sources */,
 				49C87BA521BB9A6600ED180E /* ClassListTableViewCell.swift in Sources */,
 				491555A721BA446B00453356 /* AskViewController.swift in Sources */,

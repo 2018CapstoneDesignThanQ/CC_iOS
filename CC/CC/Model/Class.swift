@@ -40,8 +40,8 @@ struct QuestionData: Codable {
     var questionID, userFk, classFk: Int?
     let content: String
     let regTime: Date
-    let likeCnt: Int?
-    let isLike: Int
+    var likeCnt: Int?
+    var isLike: Int?
     
     enum CodingKeys: String, CodingKey {
         case nickname

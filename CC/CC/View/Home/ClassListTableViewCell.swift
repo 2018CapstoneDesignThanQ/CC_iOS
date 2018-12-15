@@ -16,8 +16,8 @@ class ClassListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lottieFrameView: UIView!
     
-    public var delegate: SendDataViewControllerDelegate?
-    private var classId: String? = "1111"
+    public weak var delegate: SendDataViewControllerDelegate?
+    private var classId: String?
     
     var animationView: LOTAnimationView?
     
@@ -29,20 +29,12 @@ class ClassListTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        if selected {
-            self.classNameLabel.textColor = .pointYellow
-            self.animationView?.isHidden = false
-            self.animationView?.play() { (check) in
-                if check {
-                    self.delegate?.sendData(SendDataKey.selectedClassId,
-                                            datatype: String.self, self.classId ?? "")
-                }
+        print(animated)
+        self.checkCurrentClass(selected: selected) { [weak self] in
+            if !animated {
+                self?.delegate?.sendData(SendDataKey.selectedClassId,
+                                         datatype: String.self, self?.classId ?? "")
             }
-        } else {
-            self.classNameLabel.textColor = .textGray
-            self.animationView?.isHidden = true
-            self.animationView?.stop()
         }
     }
     
@@ -54,6 +46,30 @@ class ClassListTableViewCell: UITableViewCell {
         animationView?.contentMode = .scaleAspectFill
         
         self.addSubview(self.animationView ?? LOTAnimationView())
+    }
+    
+    public func configure(_ data: ClassData, isCurrent: Bool) {
+        self.classNameLabel.text = data.title
+        self.classId = "\(data.classID)"
+        self.checkCurrentClass(selected: isCurrent)
+//        guard isCurrent else { return }
+//        self.setSelected(isCurrent, animated: true)
+    }
+    
+    public func checkCurrentClass(selected: Bool, completion: (() -> Void)? = nil) {
+        if selected {
+            self.classNameLabel.textColor = .pointYellow
+            self.animationView?.isHidden = false
+            self.animationView?.play() { (check) in
+                if check {
+                    completion?()
+                }
+            }
+        } else {
+            self.classNameLabel.textColor = .textGray
+            self.animationView?.isHidden = true
+            self.animationView?.stop()
+        }
     }
     
 }

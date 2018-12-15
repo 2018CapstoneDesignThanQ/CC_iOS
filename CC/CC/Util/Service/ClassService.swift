@@ -61,4 +61,54 @@ class ClassService: APIService, DecodingService {
             }
         }
     }
+    
+    public func sendLikeAction(roomId: String, questionId: String,
+                               completion: @escaping (Result<String>) -> Void) {
+        let params = [
+            "class_id" : roomId,
+            "question_id" : questionId
+        ]
+        
+        NetworkService.shared.request(url("question/like"), method: .post, parameters: params) { (result) in
+            switch result {
+            case .success(let data):
+//                let formatter = DateFormatter()
+//                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+//                completion(self.decodeJSONData(Heart.self, dateFormatter: formatter, data: data))
+                completion(.success(JSON(data)["message"].string ?? ""))
+            case .error(let err):
+                completion(.error(err))
+            }
+        }
+    }
+    
+    public func sendDislikeAction(roomId: String, questionId: String,
+                               completion: @escaping (Result<String>) -> Void) {
+        let params = [
+            "class_id" : roomId,
+            "question_id" : questionId
+        ]
+        
+        NetworkService.shared.request(url("question/like"), method: .patch, parameters: params) { (result) in
+            switch result {
+            case .success(let data):
+                completion(.success(JSON(data)["message"].string ?? ""))
+            case .error(let err):
+                completion(.error(err))
+            }
+        }
+    }
+    
+    public func getMyClasses(completion: @escaping (Result<MyClass>) -> Void) {
+        NetworkService.shared.request(url("mypage/class")) { (result) in
+            switch result {
+            case .success(let data):
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                completion(self.decodeJSONData(MyClass.self, dateFormatter: formatter, data: data))
+            case .error(let err):
+                completion(.error(err))
+            }
+        }
+    }
 }

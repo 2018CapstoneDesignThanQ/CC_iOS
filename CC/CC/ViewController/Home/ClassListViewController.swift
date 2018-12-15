@@ -11,13 +11,18 @@ import UIKit
 class ClassListViewController: UIViewController {
 
     @IBOutlet weak var classListTableView: UITableView!
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
-    public var delegate: SendDataViewControllerDelegate?
+    public var roomId: String?
+    private var myClasses: [ClassData] = []
+    
+    public weak var delegate: SendDataViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.tableViewInit()
+        
+        self.setupData()
     }
     
     @IBAction func dismissAction(_ sender: Any) {
@@ -25,6 +30,27 @@ class ClassListViewController: UIViewController {
     }
     
     @IBAction func addClassAction(_ sender: Any) {
+    }
+    
+    private func setupData() {
+        ClassService.shared.getMyClasses { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let data):
+                self.myClasses = data.applyClass
+                self.classListTableView.reloadData()
+                self.tableViewHeightConstraint.constant = self.classListTableView.contentSize.height
+                
+                for (index, myClass) in self.myClasses.enumerated()
+                    where myClass.classID == Int(self.roomId ?? "") {
+                        let indexPath = IndexPath(row: index, section: 0)
+                        self.classListTableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+                }
+                
+            case .error(let err):
+                self.errorAction(error: err, confirmAction: nil)
+            }
+        }
     }
 }
 
@@ -50,11 +76,13 @@ extension ClassListViewController: UITableViewDelegate {
 
 extension ClassListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.myClasses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(ClassListTableViewCell.self, for: indexPath)
+        let myClass = self.myClasses[indexPath.row]
+        cell.configure(myClass, isCurrent: myClass.classID == Int(self.roomId ?? ""))
         cell.delegate = self
         return cell
     }

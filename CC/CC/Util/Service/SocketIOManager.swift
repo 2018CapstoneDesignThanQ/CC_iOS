@@ -35,12 +35,35 @@ class SocketIOManager: NSObject, DecodingService {
         socket?.emit("getClassID", roomId)
     }
     
-    public func getChatMessage(completion: @escaping (_ messageInfo: JSON) -> Void) {
+    public func getChatMessage(roomId: String, completion: @escaping (_ messageInfo: QuestionData) -> Void) {
         socket?.on("question") { (dataArr, socketAct) in
-            print(dataArr)
-            let data = dataArr[0] as AnyObject
-            completion(JSON(data))
+            let data = JSON(dataArr[0] as AnyObject)
+//            let dataString = String(describing: data).data(using: .utf8)
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            let message = QuestionData(nickname: data["nickname"].string ?? "",
+                                       questionID: data["question"].int ?? -1,
+                                       userFk: data["user"].int ?? 0,
+                                       classFk: Int(roomId),
+                                       content: data["content"].string ?? "",
+                                       regTime: formatter.date(from: data["time"].string ?? "") ?? Date(),
+                                       likeCnt: 0, isLike: 0)
+            completion(message)
         }
     }
     
+    public func getLikeAction(completion: @escaping (_ questionId: String, _ likeCount: Int) -> Void) {
+        socket?.on("addLike") { (dataArr, socketAct) in
+            let data = JSON(dataArr[0] as AnyObject)
+            completion(data["question_id"].string ?? "", data["like_cnt"].int ?? 0)
+        }
+    }
+    
+    public func getTopMessage(completion: @escaping (_ messageInfo: QuestionData) -> Void) {
+        socket?.on("top3") { (dataArr, socketAct) in
+            let data = dataArr[0] as AnyObject
+            print(data)
+        }
+    }
 }

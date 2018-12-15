@@ -439,6 +439,7 @@
                     </view>
                     <connections>
                         <outlet property="classListTableView" destination="wjg-fp-jlC" id="eZf-Lv-YJs"/>
+                        <outlet property="tableViewHeightConstraint" destination="ZZE-sS-l8n" id="HDa-B2-3Ml"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hjF-vX-OZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

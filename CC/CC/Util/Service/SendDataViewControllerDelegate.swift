@@ -14,4 +14,6 @@ protocol SendDataViewControllerDelegate: class {
 
 struct SendDataKey {
     static let selectedClassId: String = "com.hyejin.sendData.classId"
+    static let selectLike: String = "com.hyejin.sendData.like"
+    static let selectDislike: String = "com.hyejin.sendData.dislike"
 }
