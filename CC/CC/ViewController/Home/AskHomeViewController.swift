@@ -153,7 +153,7 @@ class AskHomeViewController: UIViewController {
     
     private func selectDislikeAction(index: Int) {
         let messagesIndex = self.messagesForShow.count - index - 1
-        let questionId = "\(self.messages[messagesIndex].questionID ?? 0)"
+        let questionId = "\(self.messagesForShow[messagesIndex].questionID ?? 0)"
         
         ClassService.shared.sendDislikeAction(roomId: self.roomId ?? "", questionId: questionId) { [weak self] (result) in
             guard let `self` = self else { return }
@@ -185,7 +185,7 @@ class AskHomeViewController: UIViewController {
     private func setLikeSocket() {
         SocketIOManager.shared.getLikeAction { [weak self] (questionId, likeCount) in
             guard let `self` = self else { return }
-            for (index, message) in self.messages.enumerated()
+            for (index, message) in self.messagesForShow.enumerated()
                 where message.questionID == Int(questionId) {
                     self.messages[index].likeCnt = likeCount
                     self.messagesForShow = self.messages
@@ -199,8 +199,18 @@ class AskHomeViewController: UIViewController {
     }
     
     private func setTopMessageSocket() {
-        SocketIOManager.shared.getTopMessage { (result) in
-            print(1111)
+        SocketIOManager.shared.getTopMessage { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let data):
+                print(data)
+                self.topMessages = data
+                self.topMessagesForShow = self.topMessages
+                self.messagesTableView.reloadSections(IndexSet(integer: Section.topMessage.rawValue),
+                                                      with: .automatic)
+            case .error(let err):
+                self.errorAction(error: err, confirmAction: nil)
+            }
         }
     }
     

@@ -60,10 +60,17 @@ class SocketIOManager: NSObject, DecodingService {
         }
     }
     
-    public func getTopMessage(completion: @escaping (_ messageInfo: QuestionData) -> Void) {
+    public func getTopMessage(completion: @escaping (_ messageInfo: Result<[QuestionData]>) -> Void) {
         socket?.on("top3") { (dataArr, socketAct) in
-            let data = dataArr[0] as AnyObject
+            print(1111111111)
+            let json = JSON(dataArr[0] as AnyObject)
+            guard let data = String(describing: json).data(using: .utf8) else { return }
             print(data)
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            completion(self.decodeJSONData([QuestionData].self,
+                                           dateFormatter: formatter, data: data))
         }
     }
 }

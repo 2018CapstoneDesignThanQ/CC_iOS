@@ -31,7 +31,7 @@ class ClassService: APIService, DecodingService {
     }
     
     public func removeRoomId() throws {
-        try self.keychain.remove("token")
+        try self.keychain.remove("roomID")
         self.lastRoomId = nil
     }
     

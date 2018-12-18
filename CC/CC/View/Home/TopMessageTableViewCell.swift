@@ -44,6 +44,8 @@ class TopMessageTableViewCell: UITableViewCell {
     }
     
     public func configure(_ index: Int, data: QuestionData) {
+        self.animationView?.isHidden = true
+        
         self.indexLabel.text = "\(index)"
         
         self.messageLabel.text = data.content

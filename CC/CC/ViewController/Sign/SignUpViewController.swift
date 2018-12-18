@@ -69,6 +69,7 @@ class SignUpViewController: UIViewController {
                                     switch result {
                                     case .success(let data):
                                         try? AuthService.shared.saveToken(data.token)
+                                        try? ClassService.shared.removeRoomId()
                                         self?.signupMessageAction(data.message)
                                         self?.loading(.end)
                                     case .error(let err):
